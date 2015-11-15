@@ -1,0 +1,10 @@
+<h1>Edit Post + </h1>
+<hr>
+<%= form_for :edit_post, url: post_path, method: :patch do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :value => @post.title, :autocomplete => :off %>
+    <%= f.label :text %>
+    <%= f.text_field :text, :value => @post.text, :autocomplete => :off %>
+
+    <%= f.submit "Save edits" %>
+<% end %>
