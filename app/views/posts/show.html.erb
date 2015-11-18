@@ -3,3 +3,23 @@
 
 <%= link_to "edit", edit_post_path %>
 <%= link_to "destroy", post_path, method: :delete %>
+
+
+
+<% @comments.each do |comment| %>
+  <p>
+  <%= comment.user.email %>
+  <%= comment.text %>
+  <%= comment.flag %>
+  <%= link_to "destroy", post_postcomment_path(@post, comment), method: :delete %>
+  </p>
+<% end %>
+
+<%= form_for :new_comment, url: post_postcomments_path(@post) do |f| %>
+
+  <%= f.label :text, "Contents", class: "control-label" %>
+  <%= f.text_area :text, :autocomplete => :off, :placeholder => "Explain your question...", class: "col-md-12 form-control", rows: "15" %>
+
+  <%= f.submit "Ask!", class: "col-md-3 btn btn-primary" %>
+<% end %>
+

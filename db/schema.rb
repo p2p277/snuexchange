@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115111222) do
+ActiveRecord::Schema.define(version: 20151118151604) do
+
+  create_table "messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "postcomments", force: :cascade do |t|
+    t.integer  "post_id",                   null: false
+    t.integer  "user_id",                   null: false
+    t.text     "text",                      null: false
+    t.boolean  "flag",       default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id",                   null: false
@@ -21,6 +35,11 @@ ActiveRecord::Schema.define(version: 20151115111222) do
     t.boolean  "flag",       default: true
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "usercomments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

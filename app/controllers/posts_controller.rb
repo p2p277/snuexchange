@@ -20,6 +20,8 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.count += 1
 		@post.save
+
+		@comments = @post.postcomments
 	end
 
 	def edit
