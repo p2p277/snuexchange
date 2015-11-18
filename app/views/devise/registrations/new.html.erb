@@ -1,0 +1,75 @@
+<div align="center">
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, autofocus: true %>
+  </div><br>
+  
+  <div class=field>
+    <%= radio_button_tag(:gender, "Male") %>
+    <%= label_tag(:gender, "Male") %>
+    <%= radio_button_tag(:gender, "Female") %>
+    <%= label_tag(:gender, "Female") %>
+  </div><br>
+  
+  <div class="field">
+    <%= f.label :Language_learn, "Language to Learn" %><br>
+    <select name="post[language_id]">
+      <option value="0">Select</option>
+      <option value="1">Korean</option>
+      <option value="2">English</option>
+      <option value="3">Chinese</option>
+      <option value="3">Deutsch</option>
+      <option value="3">Japanese</option>
+      <option value="3">French</option>
+    </select>
+  </div><Br>
+    
+  <div class="field">
+    <%= f.label :Language_speak, "Language You Speak" %><br>
+    <select name="post[language_id]">
+      <option value="0">Select</option>
+      <option value="1">Korean</option>
+      <option value="2">English</option>
+      <option value="3">Chinese</option>
+      <option value="3">Deutsch</option>
+      <option value="3">Japanese</option>
+      <option value="3">French</option>
+    </select>
+  </div><Br>
+    
+  <div class="filed">
+    <%= f.label :brief, "Brief introduction to yourself" %><br>
+    <%= text_field_tag(:brief) %>
+  </div><br>
+  
+  
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
