@@ -14,8 +14,12 @@
 ActiveRecord::Schema.define(version: 20151118151604) do
 
   create_table "messages", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.string   "message"
+    t.boolean  "flags"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "postcomments", force: :cascade do |t|
