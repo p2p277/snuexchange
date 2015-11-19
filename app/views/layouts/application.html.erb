@@ -33,11 +33,17 @@
     <div id="navbar" class="navbar-collapse collapse">
       <form class="navbar-form navbar-right">
           <% if user_signed_in? %>
-          <div><a><%=current_user.email%></a></div>
-          <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
+          <%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %>
+          <div class="buttons">
+            <div><a><%=current_user.email%></a></div>
+            <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
+            <div><a href="/users/edit" >회원정보수정</a></div>
+          </div>
           <% else %>
-          <div><a href="/users/sign_in">로그인</a></div>
-          <div><a href="/users/sign_up">회원가입</a></div>
+          <div class="buttons">
+            <div><a href="/users/sign_in">로그인</a></div>
+            <div><a href="/users/sign_up">회원가입</a></div>
+          </div>
           <% end %>
         </form>
     </div>
