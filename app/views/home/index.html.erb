@@ -1,16 +1,3 @@
-<h1 align="center">Welcome to SNU Exchange</h1>
-<div id="navbar" class="navbar-collapse collapse" align="center">
-  <li class="active"><a href="/">Home</a></li>
-  <% if user_signed_in? %>
-    <li><a><%=current_user.email%></a></li>
-    <li><a href="/users/edit">회원정보수정</a></li>
-    <li><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
-  <% else %>
-    <li><a href="/users/sign_in">로그인</a></li>
-    <li><a href="/users/sign_up">회원가입</a></li>
-  <% end %>
-</div>
-
 <div class = "wrapper video">
   <section id="home" class="pfblock-image screen-height">
     <div class="home-overlay"></div>
