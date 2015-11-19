@@ -55,6 +55,11 @@ ActiveRecord::Schema.define(version: 20151118151604) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.boolean  "gender"
+    t.string   "language_learn"
+    t.string   "language_speak"
+    t.string   "brief"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
