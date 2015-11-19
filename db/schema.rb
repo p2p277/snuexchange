@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20151118151604) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
-    t.boolean  "gender"
+    t.string   "gender"
     t.string   "language_learn"
     t.string   "language_speak"
     t.string   "brief"

@@ -28,15 +28,15 @@
   </div><br>
   
   <div class=field>
-    <%= radio_button_tag(:gender, "Male") %>
-    <%= label_tag(:gender, "Male") %>
-    <%= radio_button_tag(:gender, "Female") %>
-    <%= label_tag(:gender, "Female") %>
+    <input id="gender_male" name="user[gender]" type="radio" value="male" />
+    <label for="gender_male">Male</label>
+    <input id="gender_female" name="user[gender]" type="radio" value="female" />
+    <label for="gender_female">Female</label>
   </div><br>
   
   <div class="field">
     <%= f.label :Language_learn, "Language to Learn" %><br>
-    <select name="post[language_id]">
+    <select name="user[language_learn]">
       <option value="0">Select</option>
       <option value="1">Korean</option>
       <option value="2">English</option>
@@ -49,7 +49,7 @@
     
   <div class="field">
     <%= f.label :Language_speak, "Language You Speak" %><br>
-    <select name="post[language_id]">
+    <select name="user[language_speak]">
       <option value="0">Select</option>
       <option value="1">Korean</option>
       <option value="2">English</option>
@@ -62,7 +62,7 @@
     
   <div class="filed">
     <%= f.label :brief, "Brief introduction to yourself" %><br>
-    <%= text_field_tag(:brief) %>
+    <%= f.text_field :brief, autofocus: true %>
   </div><br>
   
   
