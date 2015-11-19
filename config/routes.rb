@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
     get 'home/language' => 'home#language'
     get '/filtering' => 'home#filtering'
+	get '/users' => 'users#index'
 
 end
