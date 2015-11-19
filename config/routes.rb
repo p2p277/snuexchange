@@ -8,4 +8,7 @@ Rails.application.routes.draw do
 		resources :postcomments
 	end
 
+    get 'home/language' => 'home#language'
+    get '/filtering' => 'home#filtering'
+
 end

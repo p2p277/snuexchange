@@ -1,12 +1,88 @@
 <h1 align="center">Welcome to SNU Exchange</h1>
-    <div id="navbar" class="navbar-collapse collapse" align="center">
-        <li class="active"><a href="/">Home</a></li>
-        <% if user_signed_in? %>
-          <li><a><%=current_user.email%></a></li>
-          <li><a href="/users/edit">회원정보수정</a></li>
-          <li><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
-          <% else %>
-          <li><a href="/users/sign_in">로그인</a></li>
-          <li><a href="/users/sign_up">회원가입</a></li>
-          <% end %>
+<div id="navbar" class="navbar-collapse collapse" align="center">
+  <li class="active"><a href="/">Home</a></li>
+  <% if user_signed_in? %>
+    <li><a><%=current_user.email%></a></li>
+    <li><a href="/users/edit">회원정보수정</a></li>
+    <li><a href="/users/sign_out" data-method="delete">로그아웃</a></li>
+  <% else %>
+    <li><a href="/users/sign_in">로그인</a></li>
+    <li><a href="/users/sign_up">회원가입</a></li>
+  <% end %>
+</div>
+
+<div class = "wrapper video">
+  <section id="home" class="pfblock-image screen-height">
+    <div class="home-overlay"></div>
+    <div class="intro">
+      <div class="start"></div>
+      <h1>SNU EXCHANGE</h1>
     </div>
+    <video loop muted autoplay poster="img/videoframe.jpg" class="fullscreen-bg__video">
+      <source src="https://a0.muscache.com/airbnb/static/Seoul-P1-4.mp4" type="video/mp4">
+    </video>
+</div>
+
+<br><br>
+
+<!--body-->
+<section id="body main">
+  <div class="container main">
+    <div class="row">
+      <div class="page-header">
+        <h1 class="text-center">Getting Started</h1>
+      </div>
+      <p class="lead text-center">스누익스체인지는 서울대학교 학생과 서울대 내 외국인 교환학생을 연결해주는 플랫폼입니다.</p>
+      <br>
+      <div class="container">
+        <div class="row stylish-panel one">
+          <div class="col-sm-6">
+            <div>
+              <%= image_tag 'flaticons/User.png', class:"img-circle img-thumbnail" %>
+              <h2 class="text-center">매칭 친구 찾기</h2>
+              <p>교환학생 친구와 함께 언어, 첨삭 교류 등을 즐겨 보세요
+              </p>
+              <a href="/home/language.html" class="btn btn-primary" title="See more">Let's Exchange!</a>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="row stylish-panel two">
+              <div class="col-sm-6">
+                <div>
+                  <%= image_tag 'flaticons/Chat.png', class:"img-circle img-thumbnail" %>
+
+                  <h2 class="text-center">언어 첨삭 교류</h2>
+                  <p>교환학생 친구와 함께 공부?를 즐겨 보세요
+                  </p>
+                  <div class="btn btn-primary" title="See more">Coming Soon!</div>
+                </div>
+
+              </div>
+            </div>
+</section>
+
+<br><br>
+
+          </div>
+          <!--end body-->     
+
+          <hr>
+          <!--start footer--> 
+
+          <footer>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6">
+
+
+                </div>
+                <div class="col-sm-6">
+                  <p class="pull-right">Copyright 2015 스누익스체인지</a></p>      
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- script references -->
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+          <script src="js/bootstrap.min.js"></script>
