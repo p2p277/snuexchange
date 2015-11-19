@@ -52,24 +52,31 @@
         
           
           <!--/stories-->
+      <% @users.reverse.each do |u| %>
+
+        <br>
 		  <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
               <a class="story-img" href="#"><img src="/img/profiles/cook_hero.png" style="width:100px;height:100px" class="img-circle"></a>
             </div>
             <div class="col-md-10 col-sm-9">
-              <h3>Tim Cook</h3>
+              <h3><%=u.name%></h3>
               <div class="row">
                 <div class="col-xs-9">
-                  <p>Hello! I am the current CEO of Apple and will be attending SNU 
-                  business school starting fall of 2016, hope to make new friends and sell some
-                  more iPhones! Please feel free to have dinner with me even if you use Samsung.</p>
+                  <p><%=u.brief%></p>
                
                   <p class="lead"><button class="btn btn-default">프로필 보기</button>
-                  
+                  <%= form_tag '#', method: 'post' %>
+                    <input type="hidden" name="id" value="<%=u.id%>">
+                    <input type="submit" value="메세지 보내기">
+                  </form>
                   
                 
-                  <ul class="list-inline"><li><a href="#"><b>Knows:</b> English (Native) </a></li><li><a href="#"><b>Learning:</b> Korean (Basic) </a></li>
+                  <ul class="list-inline">
+                    <li><a href="#"><b>Knows:</b> <%=u.language_speak%> (Native) </a>
+                    </li><li><a href="#"><b>Learning:</b> <%=u.language_learn%> (Basic) </a></li>
+                  </ul>
                   </div>
                 <div class="col-xs-3"></div>
               </div>
@@ -77,72 +84,7 @@
             </div>
           </div>
           <hr>
-                  
-		  <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-img" href="#"><img src="/img/profiles/taylor.png" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>Taylor Swift</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <p>Hi I am international country artist Taylor Swift, I love playing the guitar
-                  and I am super rich! I'll buy you all kinds of food, just dont try to be my boyfriend because I have 
-                  lots of boyfriends.</p>
-                  <p class="lead"><button class="btn btn-default">프로필 보기</button></p>
-                  
-                  <ul class="list-inline"><li><a href="#"><b>Knows:</b> English (Native) </a></li><li><a href="#"><b>Learning:</b> Korean (Basic), Japanese (Fluent) </a></li>
-                  </div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-img" href="#"><img src="/img/profiles/messi.png" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>Lionel Messi</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <p>Hello My name is Lionel Messi! You can call me Leo. I am the
-                  best footballer in the world, dont tell Cristiano. Let's meet up and play some football together! 1 vs 11.</p>
-                  <p class="lead"><button class="btn btn-default">프로필 보기</button></p>
-                
-                  <ul class="list-inline"><li><a href="#"><b>Knows:</b> Spanish (Native) </a></li><li><a href="#"><b>Learning:</b> English (Basic), Korean (None) </a></li>
-                  </div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
-          
-          <div class="row">    
-            <br>
-            <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-img" href="#"><img src="/img/profiles/miranda.png" style="width:100px;height:100px" class="img-circle"></a>
-            </div>
-            <div class="col-md-10 col-sm-9">
-              <h3>Miranda Kerr</h3>
-              <div class="row">
-                <div class="col-xs-9">
-                  <p>Hello my name is Miranda Kerr. Im pretty and you know it. I really want a Korean boyfriend! I love kpop.</p>
-                  <p class="lead"><button class="btn btn-default">프로필 보기</button></p>
-                 
-                  <ul class="list-inline"><li><a href="#"><b>Knows:</b> English (Native), German (Native) </a></li><li><a href="#"><b>Learning:</b> Korean (Fluent) </a></li>
-                  </div>
-                <div class="col-xs-3"></div>
-              </div>
-              <br><br>
-            </div>
-          </div>
-          <hr>
+          <% end %>
           <!--/stories-->
           
           
@@ -184,4 +126,3 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
-</html>
