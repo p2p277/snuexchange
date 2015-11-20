@@ -1,25 +1,54 @@
-<h1> <%= @post.title %> </h1>
-<h4> <%= @post.text %> </h4>
 
-<%= link_to "edit", edit_post_path %>
-<%= link_to "destroy", post_path, method: :delete %>
+<div class="container">
+  <div class="row">
+<h1> <%= @post.title %> </h1>
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Post</h3>
+      </div>
+      <div class="panel-body">
+        <%= @post.text %>
+      </div>
+    </div>
+
+
+<%= link_to "edit", edit_post_path, class: "btn btn-primary" %>
+<%= link_to "destroy", post_path, method: :delete , class: "btn btn-danger"%>
+
+
 
 
 
 <% @comments.each do |comment| %>
+
   <p>
-  <%= comment.user.email %>
-  <%= comment.text %>
+    <br>
+  <div class="label label-primary"><%= comment.user.email%> </div>
+  
   <%= comment.flag %>
-  <%= link_to "destroy", post_postcomment_path(@post, comment), method: :delete %>
+
   </p>
+  <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title">Comment</h3>
+      </div>
+      <div class="panel-body">
+        <%= comment.text %>
+      </div>
+    </div>
+      <%= link_to "destroy", post_postcomment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
 <% end %>
 
 <%= form_for :new_comment, url: post_postcomments_path(@post) do |f| %>
 
+<br>
+<br>
+
   <%= f.label :text, "Contents", class: "control-label" %>
   <%= f.text_area :text, :autocomplete => :off, :placeholder => "Explain your question...", class: "col-md-12 form-control", rows: "15" %>
-
-  <%= f.submit "Ask!", class: "col-md-3 btn btn-primary" %>
+  <br>
+  <%= f.submit "Ask!", class: " btn btn-primary" %>
 <% end %>
+  </div>
+</div>
 
