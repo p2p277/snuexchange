@@ -56,13 +56,13 @@
         
           
           <!--/stories-->
-      <% @users.reverse.each do |u| %>
+          <%= @users.reverse.each do |u| %>
 
         <br>
 		  <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <a class="story-img" href="#"><img src="/img/profiles/cook_hero.png" style="width:100px;height:100px" class="img-circle"></a>
+                <li type="none" class="stroy-img"><%= image_tag(u.avatar.url(:thumb)) %></li>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%=u.name%></h3>
@@ -71,7 +71,7 @@
                   <p><%=u.brief%></p>
                
                   <p class="lead"><button class="btn btn-default">프로필 보기</button>
-                  <%= form_tag '#', method: 'post' %>
+                  <%= form_tag '/home/userprofile', method: 'post' %>
                     <input type="hidden" name="id" value="<%=u.id%>">
                     <input type="submit" value="메세지 보내기">
                   </form>
