@@ -36,8 +36,8 @@
             <%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %>
             <div class="buttons">
               <div><a><%=current_user.email%></a></div>
+              <div><a href="/users/edit">회원정보수정</a></div>
               <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
-              <div><a href="/users/edit" >회원정보수정</a></div>
             </div>
           <% else %>
             <div class="buttons">

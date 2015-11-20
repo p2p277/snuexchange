@@ -34,41 +34,41 @@
   </div><br>
   
   <div class=field>
-    <%= radio_button_tag(:gender, "Male") %>
-    <%= label_tag(:gender, "Male") %>
-    <%= radio_button_tag(:gender, "Female") %>
-    <%= label_tag(:gender, "Female") %>
+    <input id="gender_male" name="user[gender]" type="radio" value="male" />
+    <label for="gender_male">Male</label>
+    <input id="gender_female" name="user[gender]" type="radio" value="female" />
+    <label for="gender_female">Female</label>
   </div><br>
   
   <div class="field">
     <%= f.label :Language_learn, "Language to Learn" %><br>
-    <select name="post[language_id]">
+    <select name="user[language_learn]">
       <option value="0">Select</option>
-      <option value="1">Korean</option>
-      <option value="2">English</option>
-      <option value="3">Chinese</option>
-      <option value="3">Deutsch</option>
-      <option value="3">Japanese</option>
-      <option value="3">French</option>
+      <option value="Korean">Korean</option>
+      <option value="English">English</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Deutsch">Deutsch</option>
+      <option value="Japanese">Japanese</option>
+      <option value="French">French</option>
     </select>
   </div><Br>
     
   <div class="field">
     <%= f.label :Language_speak, "Language You Speak" %><br>
-    <select name="post[language_id]">
+    <select name="user[language_speak]">
       <option value="0">Select</option>
-      <option value="1">Korean</option>
-      <option value="2">English</option>
-      <option value="3">Chinese</option>
-      <option value="3">Deutsch</option>
-      <option value="3">Japanese</option>
-      <option value="3">French</option>
+      <option value="Korean">Korean</option>
+      <option value="English">English</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Deutsch">Deutsch</option>
+      <option value="Japanese">Japanese</option>
+      <option value="French">French</option>
     </select>
   </div><Br>
     
   <div class="filed">
     <%= f.label :brief, "Brief introduction to yourself" %><br>
-    <%= text_field_tag(:brief) %>
+    <%= f.text_field :brief, autofocus: true %>
   </div><br>
   
   <div class="form-group">
@@ -76,16 +76,12 @@
         <div class="col-sm-6">
             <%= f.file_field :avatar %>
         </div>
-  </div>
+  </div><br>
 
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
 </div>
