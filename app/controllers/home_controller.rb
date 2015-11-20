@@ -12,5 +12,9 @@ class HomeController < ApplicationController
 	def language
 		@users = User.all
 	end
+	
+	def userprofile
+	
+	end
 
 end
