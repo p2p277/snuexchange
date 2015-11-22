@@ -82,6 +82,16 @@
                     <input type="submit" value="메세지 보내기">
                   </form>
                   
+                   <p id="count"> 평점 : <%= u.avg.round(1) %> (<%=u.usercomment.count%> 명) </p>
+                    <span class="star-rating">
+                     <% 1.upto(5) do |i| %>
+                       <% if i == u.avg.round(0) %>
+                         <i class="on"></i>
+                       <% else %>
+                         <i></i>
+                       <% end %>
+                     <% end %>
+                    </span>
                 
                   <ul class="list-inline">
                     <li><a href="#"><b>Knows:</b> <%=u.language_speak%> (Native) </a>

@@ -23,6 +23,5 @@ class ApplicationController < ActionController::Base
 			}
 		end
 	end
-	 #아바타
 	
 end
