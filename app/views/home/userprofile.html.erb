@@ -1,0 +1,55 @@
+
+    
+
+    <div class="container"><h1><%= @users.name%>의 프로필</h1> <br>
+           <%= image_tag(@users.avatar.url(:thumb), class: 'round-image-100') %> <br><br>
+           성별 : <%=@users.gender%> <br>
+           가르칠 수 있는 언어: <%=@users.language_speak%> <br>
+           배우고 싶은 언어 : <%=@users.language_learn%> <br>
+           자기소개 : <%=@users.brief%> <br><br>
+    </div>
+    
+<div class="container">
+  <%=form_tag '/home/comment', method: 'get' do %>
+    <input type="hidden" name="user_id" value="<%=@users.id%>">
+    <textarea name="content" rows="5" cols="30"></textarea>
+    <br>
+    
+  
+  
+    <!-- 별점 -->
+    <span class="star-rating small">
+      <input type="radio" name="rating" value="1"><i></i>
+      <input type="radio" name="rating" value="2"><i></i>
+      <input type="radio" name="rating" value="3"><i></i>
+      <input type="radio" name="rating" value="4"><i></i>
+      <input type="radio" name="rating" value="5"><i></i>
+    </span>
+     <br><br>
+    <input type="submit" value="덧글남기기"> 
+     <br>
+      
+  <% end %>
+  <br>
+   <!-- 평가한 내용 show -->
+ 
+  <% @cc.each do |c| %>
+      <p><%=@p.find(c.commenter_id).name %> : <%=c.content%> </p>
+       <span class="star-rating small">
+           <% 1.upto(5) do |i| %>
+              <% if i == c.score %>
+                  <i class="on"></i>
+               <% else %>
+                   <i></i>
+               <% end %>
+           <% end %>
+           
+       </span>
+  <% end %>
+  
+</div>
+
+
+
+
+ 
