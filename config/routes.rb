@@ -9,7 +9,8 @@ Rails.application.routes.draw do
 	end
 
     get 'home/language' => 'home#language'
-    post 'home/userprofile' => 'home#userprofile'
+    get 'home/profile' => 'home#profile'
+    get 'home/userprofile' => 'home#userprofile'
     get 'home/comment' => 'home#comment'
     get '/filtering' => 'home#filtering'
 	get '/users' => 'users#index'
