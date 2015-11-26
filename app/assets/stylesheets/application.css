@@ -197,3 +197,7 @@ text-align: center;
   
   margin-top: 20px;
 }
+
+.col-md-9 .qandatable {
+  margin: 0px auto;
+}
