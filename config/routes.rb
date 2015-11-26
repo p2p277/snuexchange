@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 	end
 
     get 'home/language' => 'home#language'
-    get '/filtering' => 'home#filtering'
+    get 'language' => 'home#language'
 	get '/users' => 'users#index'
 
 end
