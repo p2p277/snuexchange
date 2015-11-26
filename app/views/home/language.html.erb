@@ -68,7 +68,7 @@
                       <p><%=u.brief%></p>
 
                       <p class="lead"><button class="btn btn-default">프로필 보기</button>
-                      <%= form_tag '#', method: 'post' %>
+                      <%= form_tag '/messages_write', method: 'post' %>
                       <input type="hidden" name="id" value="<%=u.id%>">
                       <input type="submit" value="메세지 보내기">
                       </form>

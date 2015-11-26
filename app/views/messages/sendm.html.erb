@@ -1,0 +1,18 @@
+<div class="container">
+  <p>
+    <h1>보낸 메시지</h1>
+    <ul>
+      <% @sending_message.reverse.each do |s| %>
+        <li>
+            <form action="/sendm_detail">
+              <input type="hidden" name="sendm_detail" value="<%=s.id%>">
+                To. <%=User.find(s.receiver).name%><br>
+                : <%=s.content%>&nbsp;
+              <input type="submit" value="Detail">
+            </form>
+        </li>
+        <br>
+      <% end %>
+    </ul>
+  </p>
+</div>

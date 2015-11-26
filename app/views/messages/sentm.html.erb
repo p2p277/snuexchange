@@ -1,0 +1,25 @@
+<div class="container">
+  <p>
+    <h1>받은 메시지</h1>
+    <ul>
+      <% @sentm_message.reverse.each do |s| %>
+        <li>
+          <form action="/sentm_detail">
+            <input type="hidden" name="sentm_detail" value="<%=s.id%>">
+            <% if s.flags == true %>
+              <span style="color: #c8c8c8">
+              From. <%=User.find(s.sender).name%><br>
+              : <%=s.content%>&nbsp;
+              </span>
+            <% else %>
+              From. <%=User.find(s.sender).name%><br>
+              : <%=s.content%>&nbsp;
+            <% end %>
+            <input type="submit" value="Detail">
+          </form>
+        </li>
+        <br>
+      <% end %>
+    </ul>
+  </p>
+</div>

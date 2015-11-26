@@ -68,7 +68,7 @@
             <a href="/posts">Q&A</a>
           </li>
           <li>
-            <a href="#">메세지함</a>
+            <a href="/mymessages">메세지함: <%=Message.where(receiver: current_user.id).where(flags: false).size%></a>
           </li>
         </ul>
       </nav>

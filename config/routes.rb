@@ -11,5 +11,11 @@ Rails.application.routes.draw do
     get 'home/language' => 'home#language'
     get '/filtering' => 'home#filtering'
 	get '/users' => 'users#index'
-
+    post '/messages_write' => 'messages#messages_write'
+    post '/sending' => 'messages#sending'
+    get '/mymessages' => 'messages#mymessages'
+  	get '/sendm' => 'messages#sendm'
+  	get '/sentm' => 'messages#sentm'
+  	get '/sendm_detail' => 'messages#sendm_detail'
+  	get '/sentm_detail' => 'messages#sentm_detail'
 end

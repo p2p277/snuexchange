@@ -1,0 +1,10 @@
+<h1>내 메시지함</h1>
+  <form action="/sendm">
+      <input type="hidden" name="user_id" value="<%=current_user.id%>">
+      <input type="submit" value="보낸 메시지">
+  </form>
+  <br>
+  <form action="/sentm">
+      <input type="hidden" name="receiver_id" value="<%=current_user.id%>">
+      <input type="submit" value="받은 메시지">
+  </form>
