@@ -1,9 +1,15 @@
 <div class="container">
   <p>
-    <h1>받은 메시지 Detail</h1><br>
-      <h4>
-        From. <%=User.find(@sentm_detail_message.sender).name%><br><br>
-        : <%=@sentm_detail_message.content%>
-      </h4>
+    <h1>받은 메시지 Detail</h1>
+    <a href="/sentm">받은 메시지함으로</a><br><br>
+    <% if @sentm_detail_message.receiver_destroy == false %>
+    <h4>From. <%=User.find(@sentm_detail_message.sender).name%></h4>
+    <h5>: <%=@sentm_detail_message.content%></h5>
+    <form action="/sentm_delete">
+      <input type="hidden" name="sentm_delete" value="<%=@sentm_detail_message.id%>">
+      <input type="submit" class="btn btn-default" value="Delete">
+    </form>
+    <% else %>
+    <% end %>
   </p>
 </div>

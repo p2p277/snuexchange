@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   	get '/sentm' => 'messages#sentm'
   	get '/sendm_detail' => 'messages#sendm_detail'
   	get '/sentm_detail' => 'messages#sentm_detail'
+  	get '/sendm_delete' => 'messages#sendm_delete'
+  	get '/sentm_delete' => 'messages#sentm_delete'
 end
