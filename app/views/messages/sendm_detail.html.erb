@@ -1,0 +1,9 @@
+<div class="container">
+  <p>
+    <h1>보낸 메시지 Detail</h1><br>
+        <h4>
+          To. <%=User.find(@sendm_detail_message.receiver).name%><br>
+          : <%=@sendm_detail_message.content%>
+        </h4>
+  </p>
+</div>
