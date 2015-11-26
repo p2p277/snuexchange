@@ -38,12 +38,12 @@
     <%= f.label :Language_learn, "Language to Learn" %><br>
     <select name="user[language_learn]">
       <option value="0">Select</option>
-      <option value="1">Korean</option>
-      <option value="2">English</option>
-      <option value="3">Chinese</option>
-      <option value="3">Deutsch</option>
-      <option value="3">Japanese</option>
-      <option value="3">French</option>
+      <option value="Korean">Korean</option>
+      <option value="English">English</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Deutsch">Deutsch</option>
+      <option value="Japanese">Japanese</option>
+      <option value="French">French</option>
     </select>
   </div><Br>
     
@@ -51,12 +51,12 @@
     <%= f.label :Language_speak, "Language You Speak" %><br>
     <select name="user[language_speak]">
       <option value="0">Select</option>
-      <option value="1">Korean</option>
-      <option value="2">English</option>
-      <option value="3">Chinese</option>
-      <option value="3">Deutsch</option>
-      <option value="3">Japanese</option>
-      <option value="3">French</option>
+      <option value="Korean">Korean</option>
+      <option value="English">English</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Deutsch">Deutsch</option>
+      <option value="Japanese">Japanese</option>
+      <option value="French">French</option>
     </select>
   </div><Br>
     
@@ -65,12 +65,13 @@
     <%= f.text_field :brief, autofocus: true %>
   </div><br>
   
-  <div class="form-group">
+  <div class="form-group" align="right">
       <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
       <div class="col-sm-6">
           <%= f.file_field :avatar %>
       </div>
-  </div>
+  </div><br>
+  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
