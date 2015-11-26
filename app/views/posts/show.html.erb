@@ -20,6 +20,7 @@
 
 
 <% @comments.each do |comment| %>
+   <% if comment.flag == true%>
 
   <p>
     <br>
@@ -37,6 +38,7 @@
       </div>
     </div>
       <%= link_to "destroy", post_postcomment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
+  <% end %>
 <% end %>
 
 <%= form_for :new_comment, url: post_postcomments_path(@post) do |f| %>
@@ -47,7 +49,7 @@
   <%= f.label :text, "Contents", class: "control-label" %>
   <%= f.text_area :text, :autocomplete => :off, :placeholder => "Explain your question...", class: "col-md-12 form-control", rows: "15" %>
   <br>
-  <%= f.submit "Ask!", class: " btn btn-primary" %>
+  <%= f.submit "Ask!", class: " btn btn-primary pull-right" %>
 <% end %>
   </div>
 </div>
