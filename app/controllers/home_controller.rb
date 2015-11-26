@@ -13,7 +13,7 @@ class HomeController < ApplicationController
 		@users = User.all
 	end
 	
-	def userprofile 
+	def profile 
 		@users = User.find(params[:id]) #프로필 눌려진 유저
 		
         @cc = Usercomment.where(user_id: params[:id]) #프로필 눌려진 유저에 해당되는 메시지 받아오기
