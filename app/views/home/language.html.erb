@@ -1,137 +1,135 @@
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7">
-        <h3>언어교환</h3>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-7">
+      <h3>언어교환</h3>
     </div>
   </div>
-  <br>
+</div>
+<br>
 
-  <div class="container">
+<div class="container">
 
-    <div class="btn-group">
+  <div class="btn-group">
 
-      <form action="/language">
+    <form action="/language">
 
-        <select name="learn">
-          <li><option value="">배우고 싶은 언어</option>
-            <option value="korean">한국어</option>
-            <option value="english">영어</option>
-            <option value="chinese">중국어</option>
-            <option value="spanish">스페인어</option>
-        </select>
-
-        <select name="teach">
-          <option value="">가르치고 싶은 언어</option>
+      <select name="learn">
+        <li><option value="">배우고 싶은 언어</option>
           <option value="korean">한국어</option>
           <option value="english">영어</option>
           <option value="chinese">중국어</option>
           <option value="spanish">스페인어</option>
-        </select>
+      </select>
 
-        <select name="sex">
-          <option value="">성별</option>
-          <option value="male">남자</option>
-          <option value="female">여자</option>
-          <option value="">상관 없음</option>
-        </select>
+      <select name="teach">
+        <option value="">가르치고 싶은 언어</option>
+        <option value="korean">한국어</option>
+        <option value="english">영어</option>
+        <option value="chinese">중국어</option>
+        <option value="spanish">스페인어</option>
+      </select>
 
-        <input type="submit">
+      <select name="sex">
+        <option value="">성별</option>
+        <option value="male">남자</option>
+        <option value="female">여자</option>
+        <option value="">상관 없음</option>
+      </select>
 
-      </form>
-    </div>
+      <input type="submit">
+
+    </form>
   </div>
+</div>
 
-  <div class="container">
-    <div class="row">
+<div class="container">
+  <div class="row">
 
-      <div class="col-md-12"> 
+    <div class="col-md-12"> 
 
-        <div class="panel">
-          <div class="panel-body">
+      <div class="panel">
+        <div class="panel-body">
 
 
-            <!--/stories-->
-   
-            <% @filtered.each do |u| %>
+          <!--/stories-->
 
+          <% @filtered.each do |u| %>
+
+            <br>
+            <div class="row">    
               <br>
-              <div class="row">    
-                <br>
-                <div class="col-md-2 col-sm-3 text-center">
-                  <li type="none" class="stroy-img"><%= image_tag(u.avatar.url(:thumb)) %></li>
-                </div>
-                <div class="col-md-10 col-sm-9">
-                  <h3><%=u.name%></h3>
-                  <div class="row">
-                    <div class="col-xs-9">
-                      <p><%=u.brief%></p>
-                      
-                      <%= form_tag '/home/userprofile', method: 'post' %>
-                        <input type="hidden" name="id" value="<%=u.id%>">
-                        <input type="submit" class="btn btn-default" value="프로필 보기">
-                      </form>
-                  
-                      <br>
-                      <%= form_tag '/messages_write', method: 'post' %>
-                      <input type="hidden" name="id" value="<%=u.id%>">
-                      <input type="submit" class="btn btn-default" value="메세지 보내기">
-                      </form>
-                      <br>
-                      
-                      <p id="count"> 평점 : <%= u.avg.round(1) %> (<%=u.usercomments.count%> 명) </p>
-                       <span class="star-rating">
-                        <% 1.upto(5) do |i| %>
-                          <% if i == u.avg.round(0) %>
-                            <i class="on"></i>
-                          <% else %>
-                            <i></i>
-                          <% end %>
-                        <% end %>
-                       </span>
-
-                      <ul class="list-inline">
-                        <li><a href="#"><b>Knows:</b> <%=u.language_speak%> (Native) </a>
-                        </li><li><a href="#"><b>Learning:</b> <%=u.language_learn%> (Basic) </a></li>
-                      </ul>
-                    </div>
-                    <div class="col-xs-3"></div>
-                  </div>
-                  <br><br>
-                </div>
+              <div class="col-md-2 col-sm-3 text-center">
+                <li type="none" class="stroy-img"><%= image_tag(u.avatar.url(:thumb)) %></li>
               </div>
-              <hr>
-            <% end %>
-            <!--/stories-->
-          </div>
-        </div>
-      </div><!--/col-12-->
-    </div>
-  </div>
+              <div class="col-md-10 col-sm-9">
+                <h3><%=u.name%></h3>
+                <div class="row">
+                  <div class="col-xs-9">
+                    <p><%=u.brief%></p>
 
-  <hr>
+                    <%= form_tag '/home/userprofile', method: 'post' %>
+                    <input type="hidden" name="id" value="<%=u.id%>">
+                    <input type="submit" class="btn btn-default" value="프로필 보기">
+                    </form>
 
+                    <br>
+                    <%= form_tag '/messages_write', method: 'post' %>
+                    <input type="hidden" name="id" value="<%=u.id%>">
+                    <input type="submit" class="btn btn-default" value="메세지 보내기">
+                    </form>
+                    <br>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
-          <ul class="list-inline">
-            <li><i class="icon-facebook icon-2x"></i></li>
-            <li><i class="icon-twitter icon-2x"></i></li>
-            <li><i class="icon-google-plus icon-2x"></i></li>
-            <li><i class="icon-pinterest icon-2x"></i></li>
-          </ul>
+                    <p id="count"> 평점 : <%= u.avg.round(1) %> (<%=u.usercomments.count%> 명) </p>
+                    <span class="star-rating">
+                      <% 1.upto(5) do |i| %>
+                        <% if i == u.avg.round(0) %>
+                          <i class="on"></i>
+                        <% else %>
+                          <i></i>
+                        <% end %>
+                      <% end %>
+                    </span>
 
-        </div>
-        <div class="col-sm-6">
-          <p class="pull-right">Copyright 2015 스누익스체인지</a></p>      
+                    <ul class="list-inline">
+                      <li><a href="#"><b>Knows:</b> <%=u.language_speak%> (Native) </a>
+                      </li><li><a href="#"><b>Learning:</b> <%=u.language_learn%> (Basic) </a></li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-3"></div>
+                </div>
+                <br><br>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+          <!--/stories-->
         </div>
       </div>
+    </div><!--/col-12-->
+  </div>
+</div>
+
+<hr>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <ul class="list-inline">
+          <li><i class="icon-facebook icon-2x"></i></li>
+          <li><i class="icon-twitter icon-2x"></i></li>
+          <li><i class="icon-google-plus icon-2x"></i></li>
+          <li><i class="icon-pinterest icon-2x"></i></li>
+        </ul>
+
+      </div>
+      <div class="col-sm-6">
+        <p class="pull-right">Copyright 2015 스누익스체인지</a></p>      
+      </div>
     </div>
-  </footer>
-  <!-- script references -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-</body>
+  </div>
+</footer>
+<!-- script references -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
