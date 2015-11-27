@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     post 'home/userprofile' => 'home#userprofile'
     get 'home/comment' => 'home#comment'
     get '/filtering' => 'home#filtering'
+	# 상훈이가 추가한 부분.
+    get 'language' => 'home#language'
+	#
 	get '/users' => 'users#index'
     post '/messages_write' => 'messages#messages_write'
     post '/sending' => 'messages#sending'
