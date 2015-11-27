@@ -36,6 +36,14 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  config.assets.raise_runtime_errors = true
+  
+  config.action_mailer.default_url_options = { host: 'https://signup-real-gaebal-gd.c9users.io' }
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+        api_key: 'key-ac331ed4dd5f40fb8fffcdb243897204',
+        domain: 'sandbox79c1badbfb98422f94fcbbf3678ad1cc.mailgun.org'
+  }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
