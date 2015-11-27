@@ -17,9 +17,12 @@ ActiveRecord::Schema.define(version: 20151119060122) do
     t.integer  "sender"
     t.integer  "receiver"
     t.string   "content"
-    t.boolean  "flags"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "receiver_flags"
+    t.boolean  "sender_flags"
+    t.boolean  "receiver_destroy"
+    t.boolean  "sender_destroy"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "postcomments", force: :cascade do |t|
