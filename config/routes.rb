@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'home/comment' => 'home#comment'
     get '/filtering' => 'home#filtering'
 	get '/users' => 'users#index'
-    post '/messages_write' => 'messages#messages_write'
+    get '/messages_write/:id' => 'messages#messages_write'
     post '/sending' => 'messages#sending'
     get '/mymessages' => 'messages#mymessages'
   	get '/sendm' => 'messages#sendm'

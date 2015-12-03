@@ -33,7 +33,7 @@
   <br>
    <!-- 평가한 내용 show -->
  
-  <% @cc.each do |c| %>
+  <% @cc.reverse.each do |c| %>
       <p><%=@p.find(c.commenter_id).name %> : <%=c.content%> </p>
        <span class="star-rating small">
            <% 1.upto(5) do |i| %>

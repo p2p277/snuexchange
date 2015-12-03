@@ -1,12 +1,30 @@
 <div class="container">
   <p>
-    <h1>내 메시지함</h1>
-      <form action="/sendm">
-        <input type="submit" class="btn btn-default" value="보낸 메시지">
-      </form>
-      <br>
-      <form action="/sentm">
-        <input type="submit" class="btn btn-default" value="받은 메시지">
-      </form>
+    <h1>메시지 목록</h1><br>
+
+    <div class="list-group col-lg-4">
+      <% for x in 1..User.all.size %>
+        <% if x == current_user.id %>
+        <% elsif @sentm_message.where(sender: [x]).size == 0 %>
+        <% else %>
+          <a href="/messages_write/<%=@sentm_message.where(sender: [x]).last.sender%>" name="id" class="list-group-item" value="<%=@sentm_message.where(sender: [x]).last.sender%>">
+            <%=User.find(@sentm_message.where(sender: [x]).last.sender).name %>
+            <% if @sentm_message.where(sender: [x], flags: false).size == 0 %>
+            <% else %>
+            <span class="badge" text-align="right"><%=@sentm_message.where(sender: [x], flags: false).size%></span>
+            <% end %>
+          </a>
+        <% end %>
+      <% end %>
+        <% for x in 1..User.all.size %>
+        <% if x == current_user.id %>
+        <% elsif @sending_message.where(receiver: [x]).size > 0 && @sentm_message.where(sender: [x]).size == 0 %>
+          <a href="/messages_write/<%=@sending_message.where(receiver: [x]).last.receiver%>" name="id" class="list-group-item" value="<%=@sending_message.where(receiver: [x]).last.receiver%>">
+            <%=User.find(@sending_message.where(receiver: [x]).last.receiver).name %>
+          </a>
+        <% end %>
+      <% end %>
+    </div>
+    
   </p>
 </div>

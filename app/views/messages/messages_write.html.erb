@@ -1,13 +1,26 @@
 <div class="container">
   <p>
-    <h1>메시지 보내기</h1>
+    <h1><%=@user_id.name%>님과의 대화</h1><br>
+    
       <%=form_tag '/sending' %>
         <input type="hidden" name="user_id" value="<%=current_user.id%>">
         <input type="hidden" name="receiver_id" value="<%=@user_id.id%>">
-        To. <input type="text" name="receiver_name" value="<%=@user_id.name%>"><br><br>
-        <textarea name="content" rows="5" cols="30"></textarea>
-        <br>
-        <input type="submit" class="btn btn-default">
+        <div class="col-lg-5">
+          <textarea name="content" class="form-control" rows="2"></textarea>
+        </div>
+        <input type="submit" class="btn btn-default" value="전송">
       </form>
+      <br><br>
+    
+    <% @message_communications.reverse.each do |m| %>
+      <p>
+        <% if m.sender == current_user.id %>
+        <span class="badge alert-info"><%=User.find(m.sender).name%></span>
+        <% else %>
+        <span class="badge"><%=User.find(m.sender).name%></span>
+        <% end %>
+        : <%=m.content%>
+      </p>
+    <% end %>
   </p>
 </div>

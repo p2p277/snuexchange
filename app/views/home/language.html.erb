@@ -66,16 +66,18 @@
                   <div class="row">
                     <div class="col-xs-9">
                       <p><%=u.brief%></p>
-    
+
+                      <% if user_signed_in? %>
                         <a href="/home/userprofile/<%=u.id%>" class="btn btn-default">프로필 보기</a>
-                      
-                      <br>
-                      <br>
-                      <%= form_tag '/messages_write', method: 'post' %>
-                      <input type="hidden" name="id" value="<%=u.id%>">
-                      <input type="submit" class="btn btn-default" value="메세지 보내기">
-                      </form>
-                      <br>
+                        <% if u.id == current_user.id %>
+                        <% else %>
+                        <a href="/messages_write/<%=u.id%>" class="btn btn-default">메세지 보내기</a>
+                        <% end %>
+                      <% else %>
+                        <a href="/users/sign_in" class="btn btn-default">프로필 보기</a>
+                        <a href="/users/sign_in" class="btn btn-default">메세지 보내기</a>
+                      <% end %>
+                      <br><br>
                       
                       <p id="count"> 평점 : <%= u.avg.round(1) %> (<%=u.usercomments.count%> 명) </p>
                        <span class="star-rating">
