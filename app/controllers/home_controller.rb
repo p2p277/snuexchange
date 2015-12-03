@@ -48,7 +48,7 @@ class HomeController < ApplicationController
        
         cc.save
         
-        redirect_to "/"
+        redirect_to :back, id: params[:user_id]
 		
 	end
 
