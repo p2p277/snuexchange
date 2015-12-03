@@ -33,12 +33,15 @@
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">
           <% if user_signed_in? %>
-            <%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %>
+          <ul class="list-inline">
+            <li><%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %></li>
+           <li>
             <div class="buttons">
               <div><a><%=current_user.email%></a></div>
               <div><a href="/users/edit">회원정보수정</a></div>
               <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
             </div>
+            </li>
           <% else %>
             <div class="buttons">
               <div><a href="/users/sign_in">로그인</a></div>
@@ -57,12 +60,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">홈</a>
       </div>
       <nav class="collapse navbar-collapse" role="navigation">
         <ul class="nav navbar-nav">
           <li>
-            <a href="/home/language">매칭 친구 찾기</a>
+            <a href="/">홈</a>
+          </li>
+          <li>
+            <a href="/home/language">언어 교환</a>
           </li>
           <li>
             <a href="/posts">Q&A</a>
@@ -79,7 +84,7 @@
     </div>
   </header>
   <body>
-    <br><br><br><br><br><br><br>
+    <br><br>
     <%= yield %>
 
   </body>
