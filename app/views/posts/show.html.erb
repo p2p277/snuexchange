@@ -1,7 +1,9 @@
 
 <div class="container">
   <div class="row">
-<h1> <%= @post.title %> </h1>
+<h1 align="center"> <%= @post.title %> </h1>
+<hr>
+<div class="qanda">
   <div class="panel panel-primary">
       <div class="panel-heading">
         <h3 class="panel-title">Post</h3>
@@ -10,11 +12,11 @@
         <%= @post.text %>
       </div>
     </div>
-
-
-<%= link_to "edit", edit_post_path, class: "btn btn-primary" %>
-<%= link_to "destroy", post_path, method: :delete , class: "btn btn-danger"%>
-
+    
+    <div class="buttons pull-right">
+    <%= link_to "edit", edit_post_path, class: "btn btn-primary"%>
+    <%= link_to "destroy", post_path, method: :delete , class: "btn btn-danger"%>
+    </div>
 
 
 
@@ -37,7 +39,11 @@
         <%= comment.text %>
       </div>
     </div>
+<<<<<<< HEAD
+      <%= link_to "destroy", post_postcomment_path(@post, comment), method: :delete, class: "btn btn-danger pull-right" %>
+=======
       <%= link_to "destroy", post_postcomment_path(@post, comment), method: :delete, class: "btn btn-danger" %>
+>>>>>>> 7052aa54e72d292ac5ce677152a8ab881f61e210
   <% end %>
 <% end %>
 
@@ -52,5 +58,6 @@
   <%= f.submit "Ask!", class: " btn btn-primary pull-right" %>
 <% end %>
   </div>
+</div>
 </div>
 

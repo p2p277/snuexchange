@@ -33,21 +33,23 @@
       <div id="navbar" class="navbar-collapse collapse">
         <form class="navbar-form navbar-right">
           <% if user_signed_in? %>
-          <ul class="list-inline">
-            <li><%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %></li>
-           <li>
-            <div class="buttons">
-              <div><a><%=current_user.email%></a></div>
-              <div><a href="/users/edit">회원정보수정</a></div>
-              <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
-            </div>
-            </li>
-          <% else %>
-            <div class="buttons">
-              <div><a href="/users/sign_in">로그인</a></div>
-              <div><a href="/users/sign_up">회원가입</a></div>
-            </div>
-          <% end %>
+            <ul class="list-inline">
+              <li><%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %></li>
+              <li>
+                <div class="buttons">
+                  <div><a><%=current_user.email%></a></div>
+                  <div><a href="/users/edit">회원정보수정</a></div>
+                  <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
+
+                </div>
+              </li>
+            <% else %>
+              <div class="buttons">
+                <div><a href="/users/sign_in" class="btn btn-default">로그인</a></div>
+                <div><a href="/users/sign_up" class="btn btn-primary">회원가입</a></div>
+
+              </div>
+            <% end %>
         </form>
       </div>
     </div>
@@ -74,9 +76,9 @@
           </li>
           <li>
             <% if user_signed_in? %>
-            <a href="/mymessages">메세지함: <%=Message.where(receiver: current_user.id).where(receiver_flags: false).size%></a>
+              <a href="/mymessages">메세지함: <%=Message.where(receiver: current_user.id).where(receiver_flags: false).size%></a>
             <% else %>
-            <a href="/users/sign_in">메세지함</a>
+              <a href="/users/sign_in">메세지함</a>
             <% end %>
           </li>
         </ul>
@@ -92,7 +94,6 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
-
 
         </div>
         <div class="col-sm-6">

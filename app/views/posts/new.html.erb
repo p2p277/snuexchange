@@ -2,18 +2,19 @@
 <div class="container">
   <div class="row">
 
-<h1>New Post + </h1>
+<h1 align="center">New Post + </h1>
 <hr>
-<%= form_for :new_post, url: posts_path do |f| %>
 
-  <%= f.label :title, "Title", class: "control-label" %>
-  <%= f.text_field :title, :autocomplete => :off, :placeholder => "Be specific! Should be about ___ language.", class: "col-md-12 form-control" %>
-  <br>
-  <%= f.label :text, "Contents", class: "control-label" %>
-  <%= f.text_area :text, :autocomplete => :off, :placeholder => "Explain your question...", class: "col-md-12 form-control", rows: "15" %>
-<br>
-  <%= f.submit "Ask!", class: "btn btn-primary pull-right" %>
-<% end %>
-
+<div class="qanda">
+  <%= form_for :new_post, url: posts_path do |f| %>
+  
+    <%= f.label :title, "Title", class: "control-label" %>
+    <%= f.text_field :title, :autocomplete => :off, :placeholder => "Be specific! Should be about ___ language.", class: "col-md-12 form-control" %>
+    <br>
+    <%= f.label :text, "Contents", class: "control-label" %>
+    <%= f.text_area :text, :autocomplete => :off, :placeholder => "Explain your question...", class: "col-md-12 form-control", rows: "15" %>
+    <br>
+    <%= f.submit "Ask!", class: "btn btn-primary pull-right" %>
+  <% end %>
   </div>
 </div>

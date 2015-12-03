@@ -9,52 +9,87 @@
       <source src="https://a0.muscache.com/airbnb/static/Seoul-P1-4.mp4" type="video/mp4">
     </video>
 </div>
+<div style="background: #ECF0F1;">
+  <br><br><br><br>
 
-<br><br>
 
-<!--body-->
-<section id="body main">
-  <div class="container main">
-    <div class="row">
-      <div class="page-header">
-        <h1 class="text-center">Getting Started</h1>
+  <!--body-->
+  <section id="snuexchangeintro">
+
+    <h1 class="text-center">스누익스체인지를 하면 좋은 점!</h1>
+    <br><br><br>
+
+    <div class="container">
+      <div class="col-sm-2">
+
+        <div class="row"> <%= image_tag 'flaticons/Like.png' ,:size => "100x100", :align => "right" %> </div>
+        <br><br>
+        <div class="row"> <%= image_tag 'flaticons/Contact.png',:size => "100x100", :align => "right" %> </div>
+        <br><br>
+        <div class="row"> <%= image_tag 'flaticons/Star.png',:size => "100x100", :align => "right" %> </div>
+        <br><br>
+        <div class="row"><%= image_tag 'flaticons/Map.png',:size => "100x100" , :align => "right" %> </div>
+        <br><br>
       </div>
-      <p class="lead text-center">스누익스체인지는 서울대학교 학생과 서울대 내 외국인 교환학생을 연결해주는 플랫폼입니다.</p>
-      <br>
+
+      <div class="col-sm-1 stick">
+        <div style="background-color: #BDC3C7; width: 10px; height: 515px; border-radius: 25px; margin-left: 30px;"></div>
+      </div>
+
+
+      <div class="col-sm-9">
+        <br> <h3 align="left">  언제, 어느 때나 부담 없이 외국인 친구를 만날 수 있습니다! </h3> <br><br><br>
+        <br> <h3 align="left">  언어교환을 통해 자신의 외국어 실력을 늘릴 수 있습니다! </h3> <br><br><br>
+        <br> <h3 align="left">   문화교환을 통해 지금껏 경험해보지 못한 색다른 경험을 해보실 수 있습니다! </h3> <br><br><br>
+        <br> <h3 align="left">   전 세계에 다양한 친구들을 사귀게 되면서, 자신의 견문을 넓힐 수 있습니다! </h3> <br><br><br>
+      </div>
+
+
+    </div>
+
+
+
+  </section>
+</div>
+
+<br><br><br>
+
+<section id="get started">
+
+  <h1 class="text-center">Getting Started</h1>
+  <br>
+  <p class="lead text-center">스누익스체인지는 서울대학교 학생과 서울대 내 외국인 교환학생을 연결해주는 플랫폼입니다.</p>
+  <br><br>
+  <div class="container">
+    <div class="row stylish-panel one">
+      <div class="col-sm-6">
+        <div>
+          <%= image_tag 'flaticons/User.png', :size => "200x200" %>
+          <h2 class="text-center">매칭 친구 찾기</h2>
+          <p>교환학생 친구와 함께 언어, 첨삭 교류 등을 즐겨 보세요
+          </p>
+          <a href="/home/language.html" class="btn btn-primary" title="See more">Let's Exchange!</a>
+        </div>
+      </div>
+
       <div class="container">
-        <div class="row stylish-panel one">
+        <div class="row stylish-panel two">
           <div class="col-sm-6">
             <div>
-              <%= image_tag 'flaticons/User.png', class:"img-circle img-thumbnail" %>
-              <h2 class="text-center">매칭 친구 찾기</h2>
-              <p>교환학생 친구와 함께 언어, 첨삭 교류 등을 즐겨 보세요
+              <%= image_tag 'flaticons/Chat.png', :size => "200x200" %>
+
+              <h2 class="text-center">언어 첨삭 교류</h2>
+              <p>교환학생 친구와 함께 공부?를 즐겨 보세요
               </p>
-              <a href="/home/language.html" class="btn btn-primary" title="See more">Let's Exchange!</a>
+              <div class="btn btn-primary" title="See more">Coming Soon!</div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-          <div class="container">
-            <div class="row stylish-panel two">
-              <div class="col-sm-6">
-                <div>
-                  <%= image_tag 'flaticons/Chat.png', class:"img-circle img-thumbnail" %>
-
-                  <h2 class="text-center">언어 첨삭 교류</h2>
-                  <p>교환학생 친구와 함께 공부?를 즐겨 보세요
-                  </p>
-                  <div class="btn btn-primary" title="See more">Coming Soon!</div>
-                </div>
-
-              </div>
-            </div>
 </section>
 
+
 <br><br>
-
-          </div>
-          <!--end body-->     
-
-          <hr>
-          <!--start footer--> 
-
-          <script src="js/bootstrap.min.js"></script>

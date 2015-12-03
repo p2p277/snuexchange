@@ -10,35 +10,35 @@
 <div class="container">
   <div class="btn-group">
     <form action="/language" class="form-inline">
- 
-         <select name="teach" class="form-control">
-            <li><option value="">배우고 싶은 언어</option>
-            <option value="Korean">한국어</option>
-            <option value="English">영어</option>
-            <option value="Chinese">중국어</option>
-            <option value="Deutsch">독일어</option>
-            <option value="Japanese">일본어</option>
-            <option value="French">프랑스어</option>
-        </select>
 
-        <select name="learn" class="form-control">
-            <option value="">가르치고 싶은 언어</option>
-            <option value="Korean">한국어</option>
-            <option value="English">영어</option>
-            <option value="Chinese">중국어</option>
-            <option value="Deutsch">독일어</option>
-            <option value="Japanese">일본어</option>
-            <option value="French">프랑스어</option>
-        </select>
+      <select name="teach" class="form-control">
+        <li><option value="">배우고 싶은 언어</option>
+          <option value="Korean">한국어</option>
+          <option value="English">영어</option>
+          <option value="Chinese">중국어</option>
+          <option value="Deutsch">독일어</option>
+          <option value="Japanese">일본어</option>
+          <option value="French">프랑스어</option>
+      </select>
 
-        <select name="sex" class="form-control">
-          <option value="">성별</option>
-          <option value="male">남자</option>
-          <option value="female">여자</option>
-          <option value="">상관 없음</option>
-        </select>
+      <select name="learn" class="form-control">
+        <option value="">가르치고 싶은 언어</option>
+        <option value="Korean">한국어</option>
+        <option value="English">영어</option>
+        <option value="Chinese">중국어</option>
+        <option value="Deutsch">독일어</option>
+        <option value="Japanese">일본어</option>
+        <option value="French">프랑스어</option>
+      </select>
 
-    <input class="btn btn-default" type="submit" value="제출">
+      <select name="sex" class="form-control">
+        <option value="">성별</option>
+        <option value="male">남자</option>
+        <option value="female">여자</option>
+        <option value="">상관 없음</option>
+      </select>
+
+      <input class="btn btn-default" type="submit" value="제출">
     </form>
   </div>
 </div>
@@ -68,12 +68,12 @@
                   <p><%=u.brief%></p>
                   <ul class="list-inline">
                     <li><a href="/home/userprofile/<%=u.id%>" class="btn btn-default">프로필 보기</a></li>
-                    
+
                     <li>
-                    <%= form_tag '/messages_write', method: 'post' %>
-                    <input type="hidden" name="id" value="<%=u.id%>">
-                    <input type="submit" class="btn btn-default" value="메세지 보내기">
-                    </form>
+                      <%= form_tag '/messages_write', method: 'post' %>
+                      <input type="hidden" name="id" value="<%=u.id%>">
+                      <input type="submit" class="btn btn-default" value="메세지 보내기">
+                      </form>
                     </li>
                   </ul>
                   <br>
