@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'language' => 'home#language'
 	#
 	get '/users' => 'users#index'
-    post '/messages_write' => 'messages#messages_write'
+    get '/messages_write/:id' => 'messages#messages_write'
     post '/sending' => 'messages#sending'
     get '/mymessages' => 'messages#mymessages'
   	get '/sendm' => 'messages#sendm'
