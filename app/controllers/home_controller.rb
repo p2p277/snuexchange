@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 	end
 	
 	def language
-	
+	#필터링 기능 구현
 	if !params.has_key? (:sex) or (params[:learn] == "" and params[:teach] == "" and params[:sex] == "")
 		@filtered = User.all
 		elsif params[:learn] == "" and params[:teach] == ""
