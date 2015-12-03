@@ -38,11 +38,13 @@
               <div><a><%=current_user.email%></a></div>
               <div><a href="/users/edit">회원정보수정</a></div>
               <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
+            
             </div>
           <% else %>
             <div class="buttons">
-              <div><a href="/users/sign_in">로그인</a></div>
-              <div><a href="/users/sign_up">회원가입</a></div>
+              <div><a href="/users/sign_in" class="btn btn-default">로그인</a></div>
+              <div><a href="/users/sign_up" class="btn btn-primary">회원가입</a></div>
+              
             </div>
           <% end %>
         </form>
@@ -83,4 +85,30 @@
     <%= yield %>
 
   </body>
+  
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <ul class="list-inline">
+            <li><i class="icon-facebook icon-2x"></i></li>
+            <li><i class="icon-twitter icon-2x"></i></li>
+            <li><i class="icon-google-plus icon-2x"></i></li>
+            <li><i class="icon-pinterest icon-2x"></i></li>
+          </ul>
+
+        </div>
+        <div class="col-sm-6">
+          <p class="pull-right">Copyright 2015 스누익스체인지</a></p>      
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- script references -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+
 </html>
