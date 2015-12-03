@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 	end
 
     get 'home/language' => 'home#language'
-    get 'home/userprofile/:id' => 'home#userprofile'
+    get 'home/userprofile/:id' => 'home#profile'
     get 'home/comment' => 'home#comment'
     get '/filtering' => 'home#filtering'
 	# 상훈이가 추가한 부분.
