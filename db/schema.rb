@@ -71,12 +71,13 @@ ActiveRecord::Schema.define(version: 20151126071651) do
     t.string   "language_learn"
     t.string   "language_speak"
     t.string   "brief"
+    t.text     "introductiondeetail"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "confirmation_token"
-    t.datetime "confirmed_at",           default: '2015-11-27 12:36:05'
+    t.datetime "confirmed_at",           default: '2015-12-03 08:40:08'
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
   end

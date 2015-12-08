@@ -38,15 +38,11 @@ Rails.application.configure do
 
   config.assets.raise_runtime_errors = true
   
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => "gmail.com",
-    :authentication => :login,
-    :user_name => "inverliebt@gmail.com",
-    :password => "qpqpqpqp"
+  config.action_mailer.default_url_options = { host: 'https://signup-real-gaebal-gd.c9users.io' }
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: 'key-ac331ed4dd5f40fb8fffcdb243897204',
+    domain: 'sandbox79c1badbfb98422f94fcbbf3678ad1cc.mailgun.org'
   }
   # config.action_mailer.default_url_options = { host: 'https://signup-real-gaebal-gd.c9users.io' }
   # config.action_mailer.delivery_method = :mailgun

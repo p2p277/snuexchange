@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-
+	
 	def index
 
 	end
@@ -47,5 +47,17 @@ class HomeController < ApplicationController
 		redirect_to :back, id: params[:user_id]
 
 	end
+	
+	def edit
+	 
+		@users = User.find(params[:id])
+	end
+	
+	 def update
+        nn = User.find(params[:id])
+        nn.introductiondeetail = params[:naeyong]
+        nn.save
+        redirect_to :root
+    end
 
 end

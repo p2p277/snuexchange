@@ -5,5 +5,6 @@ class AddNameToUsers < ActiveRecord::Migration
     add_column :users, :language_learn, :string
     add_column :users, :language_speak, :string
     add_column :users, :brief, :string
+    add_column :users, :introductiondeetail, :text
   end
 end
