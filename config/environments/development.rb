@@ -37,7 +37,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.assets.raise_runtime_errors = true
-  
+
   config.action_mailer.default_url_options = { host: 'https://signup-real-gaebal-gd.c9users.io' }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {

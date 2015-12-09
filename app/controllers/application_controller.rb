@@ -10,30 +10,16 @@ class ApplicationController < ActionController::Base
 
 	protected
 
-	# HEAD
-	def configure_devise_permitted_parameters
-		registration_params = [:name, :email, :password, :password_confirmation, :gender, :language_learn, :language_speak, :brief, :avatar]
-
-		if params[:action] == 'update'
-			devise_parameter_sanitizer.for(:account_update) {
-				|u| u.permit(registration_params << :current_password)
-			}
-		elsif params[:action] == 'create'
-			devise_parameter_sanitizer.for(:sign_up) {
-				|u| u.permit(registration_params)
-			}
-		end
-	end
 	###
 	def configure_permitted_parameters
 		devise_parameter_sanitizer.for(:sign_up) do |u|
-			u.permit(:name, :gender, :language_learn, :language_speak, :brief,  :email, :password, :password_confirmation)
+			u.permit(:name, :gender, :language_learn, :language_speak, :brief,  :email, :password, :password_confirmation, :avatar)
 		end
 		devise_parameter_sanitizer.for(:account_update) do |u|
 			if [:password, :password_confirmation] == ""
-				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :current_password)
+				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :current_password, :avatar)
 			else
-				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :password, :password_confirmation, :current_password)
+				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :password, :password_confirmation, :current_password, :avatar)
 			end
 		end
 	end
