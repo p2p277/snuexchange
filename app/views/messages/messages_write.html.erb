@@ -5,7 +5,7 @@
       <%=form_tag '/sending' %>
         <input type="hidden" name="user_id" value="<%=current_user.id%>">
         <input type="hidden" name="receiver_id" value="<%=@user_id.id%>">
-        <div class="col-lg-5">
+        <div class="col-lg-5 col-mg-5">
           <textarea name="content" class="form-control" rows="2"></textarea>
         </div>
         <input type="submit" class="btn btn-default" value="전송">
