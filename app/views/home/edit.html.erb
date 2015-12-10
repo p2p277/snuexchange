@@ -2,7 +2,7 @@
             <h1>자기소개작성</h1>
             
             <%=form_tag '/update', method: 'post' do %>
-                <input type="hidden" name="id" value="<%= @users.id %>">
+                <input type="hidden" name="user_id" value="<%= @users.id %>">
                 <div class="form-group">
                     <textarea name="naeyong" placeholder="자기소개를 작성해주세요" class="form-control" rows="2"></textarea>
                 </div>

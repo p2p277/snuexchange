@@ -19,8 +19,14 @@
                              <img src="/male.png" width="30" height="30">
                           <% end %>
                       </h1>
-                      <%= image_tag(@users.avatar.url(:thumb), class: 'round-image-100', style: 'width: 200px') %> <br><br>
-                      
+                 
+                       <% if User.find(@users.id).avatar_file_name != nil %>
+                            <%= image_tag(@users.avatar.url(:thumb), class: 'round-image-100', style: 'width: 200px') %> 
+                        <% elsif @users.gender == "female" %> 
+                             <img src="/images/thumb/missing1.png" class="main_image">
+                        <% else %>
+                             <img src="/images/thumb/missing2.png" class="main_image">
+                        <% end %>
 
                 </div>
             </div>
@@ -28,17 +34,20 @@
             <div class="intro-text">
                 <hr class="star-light">
                 <div class="row">
-                    <div class="col-md-1 images">
-                    <img src="/img/cana.png" class="img-rounded" style="width:40px; margin: 0 auto;">
-                    </div>
+
                     <div class="col-md-4">
                  <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">가르칠 언어</span></a> <%=@users.language_speak%>
                 </div>
                  <div class="col-md-4">
-                 <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">배우고 싶은 언어</span></a><%=@users.language_learn%>
+                 <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">배우고 싶은 언어</span></a> <%=@users.language_learn%>
                  </div>
-                 <div class="col-md-3">
-                 <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">카카오톡 아이디</span></a>snupeter
+                 <div class="col-md-4">
+                 <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Facebook 아이디</span></a> <%=@users.facebook_id %> 
+                 <% if @users.id == current_user.id %>  
+                 <a class="btn btn-info btn-xs" href="/home/edit2/<%=@users.id%>" role="button">수정</a>
+                        <% else %>
+                           <i></i>
+                        <% end %>
                 </div>
                 
                 </div>
@@ -57,37 +66,45 @@
                   <div class="name" style="text-align: center">●Korean language Level 3 교재로 수업요망</br>
                   ●TOEFL Speaking Actual Test 교재 사용 예정</p>
                 </div>
-             <hr class="tagline-divider commentintro">
-                            <h2>
-                            평가하기 <br>
-                            
-                            <strong> <%=form_tag '/home/comment', method: 'get' do %>
-                                    <input type="hidden" name="user_id" value="<%=@users.id%>">
-                                    <textarea name="content" rows="5" cols="30"></textarea>
-                                    <br>
-                                    
-                                  
-                                  
-                                    <!-- 별점 -->
-                                    <span class="star-rating small">
-                                      <input type="radio" name="rating" value="1"><i></i>
-                                      <input type="radio" name="rating" value="2"><i></i>
-                                      <input type="radio" name="rating" value="3"><i></i>
-                                      <input type="radio" name="rating" value="4"><i></i>
-                                      <input type="radio" name="rating" value="5"><i></i>
-                                    </span>
-                                     <br><br>
-                                    <input type="submit" value="덧글남기기"> 
-                                     <br>
-                                     <% end %>
-                              </strong>
-                        </small>
-                    </h2>
+          
+        <%  unless @users.id == current_user.id %>   
+          
+                 <hr class="tagline-divider commentintro">
+                                <h2>
+                                평가하기 <br>
+                                
+                                <strong> <%=form_tag '/home/comment', method: 'get' do %>
+                                        <input type="hidden" name="user_id" value="<%=@users.id%>">
+                                        <textarea name="content" rows="5" cols="30"></textarea>
+                                        <br>
+                                        
+                                      
+                                      
+                                        <!-- 별점 -->
+                                        <span class="star-rating small">
+                                          <input type="radio" name="rating" value="1"><i></i>
+                                          <input type="radio" name="rating" value="2"><i></i>
+                                          <input type="radio" name="rating" value="3"><i></i>
+                                          <input type="radio" name="rating" value="4"><i></i>
+                                          <input type="radio" name="rating" value="5"><i></i>
+                                        </span>
+                                         <br><br>
+                                        <input type="submit" value="덧글남기기"> 
+                                         <br>
+                                         <% end %>
+                                  </strong>
+                            </small>
+                        </h2>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container comment">
-      <div class="row">
+            
+        <% else %>
+                   <i></i>
+        <% end %>
+    <div class="container comment">
+        
+        <div class="row">
             <div class="col-md-3">
                   <!-- 평가한 내용 show -->
  
@@ -105,11 +122,9 @@
                        </span>
                   <% end %>
             </div>
-            
         </div>
-        
-<br>
-        </div>
+        <br>
+    </div>
     
     
     <!-- /.container -->

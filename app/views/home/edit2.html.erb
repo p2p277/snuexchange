@@ -1,0 +1,17 @@
+<div class= "container1 col-xs-11">
+            <h1>Facebook 아이디</h1>
+            
+            <%=form_tag '/update2', method: 'post' do %>
+                <input type="hidden" name="id" value="<%= @users.id %>">
+                <div class="form-group col-lg-3">
+                    <input type="text" name="facebook" placeholder="Facebook 아이디를 적어주세요" class="form-control"></input>
+                </div>
+               
+                <div class="form-group">
+                     <input type="submit" class="btn btn-success" value="수정">
+                </div>
+               
+                    <br>
+                     
+            <% end %>
+</div>
