@@ -34,7 +34,7 @@
         <form class="navbar-form navbar-right">
           <% if user_signed_in? %>
                 <% if User.find(current_user.id).avatar_file_name != nil %>
-                    <%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %>
+                    <%= image_tag(current_user.avatar.url(:thumb), class: 'profile_image') %>
                     <div class="buttons">
                       <div><a><%=current_user.email%></a></div>
                       <div><a href="/users/edit">회원정보수정</a></div>
