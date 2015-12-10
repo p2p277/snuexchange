@@ -13,14 +13,16 @@
       <br><br>
     
     <% @message_communications.reverse.each do |m| %>
-      <p>
-        <% if m.sender == current_user.id %>
-        <span class="badge alert-info"><%=User.find(m.sender).name%></span>
-        <% else %>
-        <span class="badge"><%=User.find(m.sender).name%></span>
-        <% end %>
-        : <%=m.content%>
-      </p>
+      <div class="overflow">
+        <p>
+          <% if m.sender == current_user.id %>
+          <span class="badge alert-info"><%=User.find(m.sender).name%></span>
+          <% else %>
+          <span class="badge"><%=User.find(m.sender).name%></span>
+          <% end %>
+          : <%=m.content%> <span class="date"><%=m.created_at.in_time_zone('Seoul').strftime('%Y-%m-%d %I:%M %p') %></span>
+        </p>
+      </div>
     <% end %>
   </p>
 </div>

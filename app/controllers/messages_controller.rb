@@ -16,6 +16,8 @@ class MessagesController < ApplicationController
         m.content = params[:content]
         m.receiver = params[:receiver_id]
         m.flags = false
+        m.sender_destroy = false
+        m.receiver_destroy = false
         m.save
         
         redirect_to :back
