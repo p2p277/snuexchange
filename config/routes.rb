@@ -21,10 +21,5 @@ Rails.application.routes.draw do
     get '/messages_write/:id' => 'messages#messages_write'
     post '/sending' => 'messages#sending'
     get '/mymessages' => 'messages#mymessages'
-  	get '/sendm' => 'messages#sendm'
-  	get '/sentm' => 'messages#sentm'
-  	get '/sendm_detail' => 'messages#sendm_detail'
-  	get '/sentm_detail' => 'messages#sentm_detail'
-  	get '/sendm_delete' => 'messages#sendm_delete'
-  	get '/sentm_delete' => 'messages#sentm_delete'
+    get '/message_delete' => 'message#message_delete'
 end

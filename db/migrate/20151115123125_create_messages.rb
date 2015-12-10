@@ -5,6 +5,8 @@ class CreateMessages < ActiveRecord::Migration
       t.integer :receiver
       t.string :content
       t.boolean :flags
+      t.boolean :sender_destroy
+      t.boolean :receiver_destroy
 
       t.timestamps null: false
     end
