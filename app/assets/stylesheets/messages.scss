@@ -12,3 +12,37 @@
     font-size: 12px;
     color: grey;
 }
+
+.profile_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+}
+
+.mp {
+    position: absolute;
+    left: 75px;
+    top: 13px;
+}
+
+.mp_date {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    font-size: 12px;
+    color: grey;
+}
+
+.mp_count {
+    position: absolute;
+    bottom: 17px;
+    right: 10px;
+}
+
+.mp_content {
+    white-space: nowrap;
+    width: 16em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
