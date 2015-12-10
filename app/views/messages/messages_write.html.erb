@@ -1,26 +1,35 @@
 <div class="container">
-  <p>
-    <h1><%=@user_id.name%>님과의 대화</h1><br>
-    
-      <%=form_tag '/sending' %>
+<div class="col-sm-offset-3 col-sm-6">
+      <center><h1><%=@user_id.name%>님과의 대화</h1><br></center>
+    <div class="col-sm-12">
+      <%=form_tag '/sending', class: "form"%>
         <input type="hidden" name="user_id" value="<%=current_user.id%>">
         <input type="hidden" name="receiver_id" value="<%=@user_id.id%>">
-        <div class="col-lg-5">
-          <textarea name="content" class="form-control" rows="2"></textarea>
-        </div>
-        <input type="submit" class="btn btn-default" value="전송">
+         <textarea name="content" class="form-control" rows="4" style="textarea-align: center"></textarea> <br>
+        <input type="submit" class="btn btn-default" value="전송" buttom>
       </form>
-      <br><br>
-    
-    <% @message_communications.reverse.each do |m| %>
-      <p>
-        <% if m.sender == current_user.id %>
-        <span class="badge alert-info"><%=User.find(m.sender).name%></span>
-        <% else %>
-        <span class="badge"><%=User.find(m.sender).name%></span>
-        <% end %>
-        : <%=m.content%>
-      </p>
-    <% end %>
-  </p>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="messages">
+      <% @message_communications.reverse.each do |m| %>
+      <div class="overflow">
+        <p>
+          <% if m.sender == current_user.id %>
+          <span class="right"><%=User.find(m.sender).name%>
+          <% else %>
+          <span class="left"><%=User.find(m.sender).name%>
+          <% end %>
+          : <%=m.content%>
+          </span>
+          <div class="clear"></div> 
+        </p>
+      </div>
+      <% end %>
+      </div>
+    </div>
+
+</div>
+
+
 </div>

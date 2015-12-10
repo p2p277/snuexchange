@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <h1><font size="5"></br></br></b> </font></h1>
+                    <h1><font size="5">peter</br></br>21</b> </font></h1>
                 </div>
                 <div class="col-md-8 images">
                     <img src="/img/pe.jpg" class="img-rounded" style="width:200px; margin:auto 0;">
@@ -69,8 +69,8 @@
         <div class="container comment">
       <div class="row">
             <div class="col-md-3">
-                  <!-- 평가한 내용 show -->
- 
+                 
+            !-- 평가한 내용 show -->
                   <% @cc.each do |c| %>
                       <p><%=@p.find(c.commenter_id).name %> : <%=c.content%> </p>
                        <span class="star-rating small">

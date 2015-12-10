@@ -1,8 +1,7 @@
 <div class="container">
   <p>
-    <h1>메시지 목록</h1><br>
-
-    <div class="list-group col-lg-4">
+    <h1><center>메시지 목록</center></h1><br>
+     <div class="col-sm-6">
       <% for x in 1..User.all.size %>
         <% if x == current_user.id %>
         <% elsif @sentm_message.where(sender: [x]).size == 0 %>
@@ -24,7 +23,9 @@
           </a>
         <% end %>
       <% end %>
-    </div>
-    
-  </p>
+     
+        </div>
+        </p>
 </div>
+
+
