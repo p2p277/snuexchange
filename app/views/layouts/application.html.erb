@@ -22,6 +22,7 @@
       <link href="css/styles.css" rel="stylesheet">
       <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
   </head>
+  <body>
 
   <header class="navbar navbar-default navbar-fixed-top" role="banner">
 
@@ -36,11 +37,11 @@
             <ul class="list-inline">
               <li><%= image_tag(current_user.avatar.url(:thumb), class: 'round-image-50') %></li>
               <li>
-                <div class="buttons">
+                <div>
                   <div><a><%=current_user.email%></a></div>
+                  <div><a href="/home/userprofile/<%=current_user.id%>">프로필 보기</a></div>
                   <div><a href="/users/edit">회원정보수정</a></div>
                   <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
-
                 </div>
               </li>
             <% else %>
@@ -85,11 +86,8 @@
       </nav>
     </div>
   </header>
-  <body>
-    <br><br>
+    <br><br><br><br>
     <%= yield %>
-
-  </body>
   <footer>
     <div class="container">
       <div class="row">
@@ -102,7 +100,23 @@
       </div>
     </div>
   </footer>
+  </body>
   <!-- script references -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </html>
+<script>
+  $(document).ready(function() {
+    fixedFooter();
+  });
+  
+  $('body').on('resize', function() {
+    fixedFooter();
+  });
+  
+  function fixedFooter() {
+    if($(window).height() > $('html').height()) {
+      $('footer').addClass('fixed');
+    }
+  }
+</script>

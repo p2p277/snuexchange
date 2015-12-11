@@ -219,8 +219,9 @@ text-align: center;
   margin: 0px auto;
 }
 
-.footer {
-    position: absolute !important;
+footer.fixed {
+    position: fixed !important;
+    left: 0 !important;
     bottom: 0 !important;
     width: 100% !important;
 }
@@ -228,3 +229,34 @@ text-align: center;
 .stick .row img {
   border-radius: 50%;
 }
+
+.introtext h3 {
+  font-weight: 300;
+  margin: 20px;
+}
+
+.panel {
+
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.profileimg {
+  text-align:center;
+}
+
+.profileinfo {
+  font-size: 130%;
+  font-weight:bold;
+}
+
+.profiletext {
+  font-size: 130%;
+}
+
+
+.profilebox {
+  max-width: 600px !important;
+  margin: 0px auto;
+}
+
