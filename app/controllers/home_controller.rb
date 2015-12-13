@@ -29,7 +29,7 @@ class HomeController < ApplicationController
 		@users = User.find(params[:id]) #프로필 눌려진 유저
 
 		@cc = Usercomment.where(user_id: params[:id]) #프로필 눌려진 유저에 해당되는 메시지 받아오기
-
+		@pp = User.all
 	end
 
 	def comment
@@ -76,7 +76,7 @@ class HomeController < ApplicationController
 
 	def update2
 		nn = User.find(params[:id])
-		nn.facebook_id = params[:facebook]
+		nn.plan = params[:plan]
 		nn.save
 		redirect_to "/home/userprofile/#{nn.id}"
 	end

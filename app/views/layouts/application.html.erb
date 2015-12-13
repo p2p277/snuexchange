@@ -81,11 +81,7 @@
             <a href="/posts">Q&A</a>
           </li>
           <li>
-            <% if user_signed_in? %>
-            <a href="/mymessages">메세지함 <span class="badge"><%=Message.where(receiver: current_user.id).where(flags: false).size%></span></a>
-            <% else %>
-              <a href="/users/sign_in">메세지함</a>
-            <% end %>
+            
           </li>
         </ul>
       </nav>

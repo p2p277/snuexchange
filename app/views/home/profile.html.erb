@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h1 align="center">Test's Profile</h1>
+    <h1 align="center"><%=@users.name%>'s Profile</h1>
     <br>
     <div class="col-sm-6 col-sm-offset-3">
       <div class="row">
@@ -31,7 +31,15 @@
           <br>
           <div class="row"><span class="profileinfo">배우고 싶은 언어</span>: <span class="profiletext"><%=@users.language_learn%></span></div>
           <br>
-          <div class="row"><span class="profileinfo">수업 요망</span>: <span class="profiletext">재밌게!</span></div>
+          <div class="row"><span class="profileinfo">수업 계획</span>: 
+                      <span class="profiletext"><%=@users.plan %>
+                        <% if @users.id == current_user.id %>  
+                           <a class="bin ban-info btn-xs" href="/home/edit2/<%=@users.id%>" role="button">수정</a>
+                        <% else %>
+                           <i></i>
+                        <% end %>
+                      </span>
+          </div>
         </div>
       </div>
       <br><br>
@@ -59,8 +67,8 @@
       <% @cc.each do |c| %>
         <div class="col-sm-12">
         <div class= "col-sm-3">
-          <% if User.find(@users.id).avatar_file_name != nil %>
-            <%= image_tag(@users.avatar.url(:thumb), class: 'round-image-100', style: 'width: 100px') %> 
+          <% if User.find(c.commenter_id).avatar_file_name != nil %>
+            <%= image_tag(User.find(c.commenter_id).avatar.url(:thumb), class: 'round-image-100', style: 'width: 100px') %> 
           <% elsif @users.gender == "female" %> 
             <img src="/images/thumb/missing1.png" class="main_image" style="width:100px">
           <% else %>
@@ -71,7 +79,7 @@
           <div class="panel panel-warning">
             <div class="panel-heading">
               <h3 class="panel-title">
-                <%=c.user.name %>
+                <%=User.find(c.commenter_id).name %>
               </h3>
             </div>
             <span class="star-rating small">
@@ -125,4 +133,4 @@
     </div>
   </div>
 </div>
-
+l

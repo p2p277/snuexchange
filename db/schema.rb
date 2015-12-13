@@ -71,17 +71,13 @@ ActiveRecord::Schema.define(version: 20151126071651) do
     t.string   "language_speak"
     t.string   "brief"
     t.text     "introductiondeetail"
-    t.string   "facebook_id"
+    t.text     "plan"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "confirmation_token"
-<<<<<<< HEAD
     t.datetime "confirmed_at"
-=======
-    t.datetime "confirmed_at",           default: '2015-12-03 08:51:02'
->>>>>>> 9668b463012b0e97369ee82ece8217b15ec8f4ab
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
   end
