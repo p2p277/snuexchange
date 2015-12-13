@@ -95,7 +95,13 @@
 }
 
 .profile_photo {
-    position: absolute;
+    position: relative;
     top: 25px;
-    left: 60px;
+    left: 20px;
+}
+
+.p_down {
+    position: relative;
+    right: 5px;
+    top: 7px;
 }
