@@ -218,8 +218,9 @@ text-align: center;
   margin: 0px auto;
 }
 
-.footer {
-    position: absolute !important;
+footer.fixed {
+    position: fixed !important;
+    left: 0 !important;
     bottom: 0 !important;
     width: 100% !important;
 }
@@ -243,3 +244,33 @@ text-align: center;
     border-radius: 50%;
     box-shadow: 0 0 4px rgba(0, 0, 0, .8);
 }
+.introtext h3 {
+  font-weight: 300;
+  margin: 20px;
+}
+
+.panel {
+
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.profileimg {
+  text-align:center;
+}
+
+.profileinfo {
+  font-size: 130%;
+  font-weight:bold;
+}
+
+.profiletext {
+  font-size: 130%;
+}
+
+
+.profilebox {
+  max-width: 600px !important;
+  margin: 0px auto;
+}
+

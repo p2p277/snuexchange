@@ -1,157 +1,88 @@
-
-    <style>
-        .images img {
-            vertical-align: middle;
-        }
-    </style>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h1><font size="5"></br></br></b> </font></h1>
-                </div>
-                <div class="col-md-8 images">
-                   <div class="container">
-                       
-                      <h1><%= @users.name %>  
-                          <% if @users.gender == "female" %>
-                            <img src="/female.png" width="23" height="30">
-                          <% else %>
-                             <img src="/male.png" width="30" height="30">
-                          <% end %>
-                      </h1>
-                 
-                       <% if User.find(@users.id).avatar_file_name != nil %>
-                            <%= image_tag(@users.avatar.url(:thumb), class: 'round-image-100', style: 'width: 200px') %> 
-                        <% elsif @users.gender == "female" %> 
-                             <img src="/images/thumb/missing1.png" class="main_image">
-                        <% else %>
-                             <img src="/images/thumb/missing2.png" class="main_image">
-                        <% end %>
-
-                </div>
-            </div>
-            
-            <div class="intro-text">
-                <hr class="star-light">
-                <div class="row">
-
-                    <div class="col-md-4">
-                 <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">가르칠 언어</span></a> <%=@users.language_speak%>
-                </div>
-                 <div class="col-md-4">
-                 <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">배우고 싶은 언어</span></a> <%=@users.language_learn%>
-                 </div>
-                 <div class="col-md-4">
-                 <a href="https://snuexchange-tjdgh9340.c9users.io/index.html" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Facebook 아이디</span></a> <%=@users.facebook_id %> 
-                 <% if @users.id == current_user.id %>  
-                 <a class="btn btn-info btn-xs" href="/home/edit2/<%=@users.id%>" role="button">수정</a>
-                        <% else %>
-                           <i></i>
-                        <% end %>
-                </div>
-                
-                </div>
-                <br>
-                <div class="skills" style="border: 1px solid #ccc; padding: 10px;">
-                        <%=@users.introductiondeetail %> 
-                       
-                        <% if @users.id == current_user.id %>
-                          <a class="btn btn-info btn-xs" href="/home/edit/<%=@users.id%>" role="button">자기소개수정</a>
-                        <% else %>
-                           <i></i>
-                        <% end %>
-                </div>
-             </div>
-               <div class="intro-text">
-                  <div class="name" style="text-align: center">●Korean language Level 3 교재로 수업요망</br>
-                  ●TOEFL Speaking Actual Test 교재 사용 예정</p>
-                </div>
-          
-        <%  unless @users.id == current_user.id %>   
-          
-                 <hr class="tagline-divider commentintro">
-                                <h2>
-                                평가하기 <br>
-                                
-                                <strong> <%=form_tag '/home/comment', method: 'get' do %>
-                                        <input type="hidden" name="user_id" value="<%=@users.id%>">
-                                        <textarea name="content" rows="5" cols="30"></textarea>
-                                        <br>
-                                        
-                                      
-                                      
-                                        <!-- 별점 -->
-                                        <span class="star-rating small">
-                                          <input type="radio" name="rating" value="1"><i></i>
-                                          <input type="radio" name="rating" value="2"><i></i>
-                                          <input type="radio" name="rating" value="3"><i></i>
-                                          <input type="radio" name="rating" value="4"><i></i>
-                                          <input type="radio" name="rating" value="5"><i></i>
-                                        </span>
-                                         <br><br>
-                                        <input type="submit" value="덧글남기기"> 
-                                         <br>
-                                         <% end %>
-                                  </strong>
-                            </small>
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            
-        <% else %>
-                   <i></i>
-        <% end %>
-    <div class="container comment">
-        
-        <div class="row">
-            <div class="col-md-3">
-                  <!-- 평가한 내용 show -->
- 
-                  <% @cc.each do |c| %>
-                      <p><%=@p.find(c.commenter_id).name %> : <%=c.content%> </p>
-                       <span class="star-rating small">
-                           <% 1.upto(5) do |i| %>
-                              <% if i == c.score %>
-                                  <i class="on"></i>
-                               <% else %>
-                                   <i></i>
-                               <% end %>
-                           <% end %>
-                           
-                       </span>
-                  <% end %>
-            </div>
+<div class="container">
+  <div class="row">
+    <h1 align="center">Test's Profile</h1>
+    <br>
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row profileimg" style="text-align:center"><img src="/img/pe.jpg" class="img-rounded" style="width:200px"></div>
+          <br>
+          <div class="row profileimg" style="text-align:center"><input type="submit" class="btn btn-default" value="메세지 보내기"></div>
         </div>
-        <br>
+
+        <div class="col-sm-6">
+          <div class="row"><span class="profileinfo">성별</span>: <i class="fa fa-mars fa-2x"></i></div>
+          <br>
+          <div class="row"><span class="profileinfo">가르칠 언어</span>: <span class="profiletext"><%=@users.language_speak%></span></div>
+          <br>
+          <div class="row"><span class="profileinfo">배우고 싶은 언어</span>: <span class="profiletext"><%=@users.language_learn%></span></div>
+          <br>
+          <div class="row"><span class="profileinfo">카카오톡 ID</span>: <span class="profiletext">MEMEMEME</span></div>
+          <br>
+          <div class="row"><span class="profileinfo">수업 요망</span>: <span class="profiletext">재밌게!</span></div>
+        </div>
+      </div>
+      <br><br>
+
+
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Test's Profile</h3>
+          </div>
+          <div class="panel-body">
+            Hello. 안녕하세요. My name is Peter. Iam from Totonto university in canada. 
+            I am 22 years old. i am studying business and i usually have classed at 58 dong in SNU.
+            i am interested in learning korean. i can read and write little of korean but i cannot speak and listen well. 
+            i want to find the language partner in snuexchang. i can teach english and i want to lean korean.
+            i hope to get your message so on.
+          </div>
+        </div>
+      </div>
+      <br><hr>
+
+      <!-- 평가한 내용 show -->
+      <div class= "col-sm-3">
+        <img src="/img/pe.jpg" class="img-rounded" style="width:100px; margin:auto 0;">    
+      </div>
+      <div class="col-sm-9">
+        <div class="panel panel-warning">
+          <% @cc.each do |c| %>
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <%=@p.find(c.commenter_id).name %>
+              </h3>
+            </div>
+            <span class="star-rating small">
+              <% 1.upto(5) do |i| %>
+                <% if i == c.score %>
+                  <i class="on"></i>
+                <% else %>
+                  <i></i>
+                <% end %>
+              <% end %>
+            </span>
+            <div class="panel-body"><%=c.content%></div>
+          <% end %>
+        </div>
+      </div>
+      <br><br>
+
+      <div class="col-md-12">
+        <hr>
+        <h3>후기 남기기</h3>
+        <span class="star-rating small">
+          <input type="radio" name="rating" value="1"><i></i>
+          <input type="radio" name="rating" value="2"><i></i>
+          <input type="radio" name="rating" value="3"><i></i>
+          <input type="radio" name="rating" value="4"><i></i>
+          <input type="radio" name="rating" value="5"><i></i>
+        </span>
+
+        <div class= "form-control", rows: "15"></div>
+        <div><input type="submit" class="btn btn-default pull right" value="덧글달기"></div>
+      </div>
     </div>
-    
-    
-    <!-- /.container -->
+  </div>
+</div>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p>snuexchang.2015.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-    <!-- Script to Activate the Carousel -->
-    <script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-    </script>
-
-</body>
-
-</html>

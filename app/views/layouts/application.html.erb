@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -22,6 +23,7 @@
       <link href="css/styles.css" rel="stylesheet">
       <script src="http://pupunzi.com/mb.components/mb.YTPlayer/demo/inc/jquery.mb.YTPlayer.js"></script>
   </head>
+  <body>
 
   <header class="navbar navbar-default navbar-fixed-top" role="banner">
 
@@ -37,6 +39,7 @@
               <%= image_tag(current_user.avatar.url(:thumb), class: 'profile_image') %>
               <div class="buttons">
                 <div><a><%=current_user.email%></a></div>
+                <div><a href="/home/userprofile/<%=current_user.id%>">프로필 보기</a></div>
                 <div><a href="/users/edit">회원정보수정</a></div>
                 <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
               </div>
@@ -46,6 +49,7 @@
               <img src="/images/thumb/missing1.png" class="profile_image">
               <div class="buttons">
                 <div><a><%=current_user.email%></a></div>
+                <div><a href="/home/userprofile/<%=current_user.id%>">프로필 보기</a></div>
                 <div><a href="/users/edit">회원정보수정</a></div>
                 <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
               </div> 
@@ -54,6 +58,7 @@
               <img src="/images/thumb/missing2.png" class="profile_image">
               <div class="buttons">
                 <div><a><%=current_user.email%></a></div>
+                <div><a href="/home/userprofile/<%=current_user.id%>">프로필 보기</a></div>
                 <div><a href="/users/edit">회원정보수정</a></div>
                 <div><a href="/users/sign_out" data-method="delete">로그아웃</a></div>
               </div> 
@@ -99,12 +104,8 @@
       </nav>
     </div>
   </header>
-  <body>
-    <br><br>
-    <br><br>
+    <br><br><br><br>
     <%= yield %>
-
-  </body>
   <footer>
     <div class="container">
       <div class="row">
@@ -117,7 +118,23 @@
       </div>
     </div>
   </footer>
+  </body>
   <!-- script references -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </html>
+<script>
+  $(document).ready(function() {
+    fixedFooter();
+  });
+  
+  $('body').on('resize', function() {
+    fixedFooter();
+  });
+  
+  function fixedFooter() {
+    if($(window).height() > $('html').height()) {
+      $('footer').addClass('fixed');
+    }
+  }
+</script>
