@@ -59,14 +59,15 @@
           <div class="row profiles">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <li type="none" class="stroy-img">
+              <li type="none">
                 <% if User.find(u.id).avatar_file_name != nil %>
                   <%= image_tag(u.avatar.url(:thumb)) %>
                 <% elsif u.gender == "female" %> 
                   <img src="/images/thumb/missing1.png" class="main_image">
                 <% else %>
                   <img src="/images/thumb/missing2.png" class="main_image">
-                <% end %></li>
+                <% end %>
+              </li>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%=u.name%></h3>

@@ -5,24 +5,37 @@
     <div class="col-sm-6 col-sm-offset-3">
       <div class="row">
         <div class="col-sm-6">
-          <div class="row profileimg" style="text-align:center"><img src="/img/pe.jpg" class="img-rounded" style="width:200px"></div>
+          <div class="row profileimg" style="text-align:center">
+            <% if User.find(@users.id).avatar_file_name != nil %>
+              <%= image_tag(@users.avatar.url(:thumb), class: 'round-image-100', style: 'width: 200px') %> 
+            <% elsif @users.gender == "female" %> 
+              <img src="/images/thumb/missing1.png" class="main_image" style="width:200px">
+            <% else %>
+              <img src="/images/thumb/missing2.png" class="main_image" style="width:200px">
+            <% end %>
+          </div>
           <br>
           <div class="row profileimg" style="text-align:center"><input type="submit" class="btn btn-default" value="메세지 보내기"></div>
         </div>
 
         <div class="col-sm-6">
-          <div class="row"><span class="profileinfo">성별</span>: <i class="fa fa-mars fa-2x"></i></div>
+          <div class="row">
+            <% if @users.gender == "female" %>
+              <i class="fa fa-venus fa-2x"></i>
+            <% else %>
+              <i class="fa fa-mars fa-2x"></i>
+            <% end %>
+          </div>
           <br>
           <div class="row"><span class="profileinfo">가르칠 언어</span>: <span class="profiletext"><%=@users.language_speak%></span></div>
           <br>
           <div class="row"><span class="profileinfo">배우고 싶은 언어</span>: <span class="profiletext"><%=@users.language_learn%></span></div>
           <br>
-          <div class="row"><span class="profileinfo">카카오톡 ID</span>: <span class="profiletext">MEMEMEME</span></div>
-          <br>
           <div class="row"><span class="profileinfo">수업 요망</span>: <span class="profiletext">재밌게!</span></div>
         </div>
       </div>
       <br><br>
+
 
 
       <div class="col-sm-12">
@@ -31,26 +44,34 @@
             <h3 class="panel-title">Test's Profile</h3>
           </div>
           <div class="panel-body">
-            Hello. 안녕하세요. My name is Peter. Iam from Totonto university in canada. 
-            I am 22 years old. i am studying business and i usually have classed at 58 dong in SNU.
-            i am interested in learning korean. i can read and write little of korean but i cannot speak and listen well. 
-            i want to find the language partner in snuexchang. i can teach english and i want to lean korean.
-            i hope to get your message so on.
+            <%=@users.introductiondeetail %> 
+            <% if @users.id == current_user.id %>
+              <a class="bin ban-info btn-xs" href="/home/edit/<%=@users.id%>" role="button">자기소개수정</a>
+            <% else %>
+              <i></i>
+            <% end %>
           </div>
         </div>
       </div>
       <br><hr>
 
       <!-- 평가한 내용 show -->
-      <div class= "col-sm-3">
-        <img src="/img/pe.jpg" class="img-rounded" style="width:100px; margin:auto 0;">    
-      </div>
-      <div class="col-sm-9">
-        <div class="panel panel-warning">
-          <% @cc.each do |c| %>
+      <% @cc.each do |c| %>
+        <div class="col-sm-12">
+        <div class= "col-sm-3">
+          <% if User.find(@users.id).avatar_file_name != nil %>
+            <%= image_tag(@users.avatar.url(:thumb), class: 'round-image-100', style: 'width: 100px') %> 
+          <% elsif @users.gender == "female" %> 
+            <img src="/images/thumb/missing1.png" class="main_image" style="width:100px">
+          <% else %>
+            <img src="/images/thumb/missing2.png" class="main_image" style="width:100px">
+          <% end %>
+        </div>
+        <div class="col-sm-9">
+          <div class="panel panel-warning">
             <div class="panel-heading">
               <h3 class="panel-title">
-                <%=@p.find(c.commenter_id).name %>
+                <%=c.user.name %>
               </h3>
             </div>
             <span class="star-rating small">
@@ -63,24 +84,43 @@
               <% end %>
             </span>
             <div class="panel-body"><%=c.content%></div>
-          <% end %>
+          </div>
         </div>
-      </div>
-      <br><br>
+        </div>
+      <% end %>
 
       <div class="col-md-12">
-        <hr>
-        <h3>후기 남기기</h3>
-        <span class="star-rating small">
-          <input type="radio" name="rating" value="1"><i></i>
-          <input type="radio" name="rating" value="2"><i></i>
-          <input type="radio" name="rating" value="3"><i></i>
-          <input type="radio" name="rating" value="4"><i></i>
-          <input type="radio" name="rating" value="5"><i></i>
-        </span>
 
-        <div class= "form-control", rows: "15"></div>
-        <div><input type="submit" class="btn btn-default pull right" value="덧글달기"></div>
+
+        <%  unless @users.id == current_user.id %>
+
+          <hr class="tagline-divider comment intro">
+          <hr>
+          <div class="container">
+            <div class="col-md-12">
+              <h3>후기 남기기</h3>
+
+              <%=form_tag '/home/comment', method: 'get' do %>
+                <input type="hidden" name="user_id" value="<%=@users.id%>">
+                <textarea name="content" rows="10" cols="50"></textarea>
+                <br>
+                <!— 별점 —>
+                <div class="col-md-12">
+                  <span class="star-rating small">
+                    <input type="radio" name="rating" value="1"><i></i>
+                    <input type="radio" name="rating" value="2"><i></i>
+                    <input type="radio" name="rating" value="3"><i></i>
+                    <input type="radio" name="rating" value="4"><i></i>
+                    <input type="radio" name="rating" value="5"><i></i>
+                  </span>
+                  <div><input type="submit" class="bin ban-default pull right" value="덧글달기"></div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+
+
       </div>
     </div>
   </div>
