@@ -27,25 +27,36 @@ class HomeController < ApplicationController
 
 	def profile
 		@users = User.find(params[:id]) #프로필 눌려진 유저
-
+	
 		@cc = Usercomment.where(user_id: params[:id]) #프로필 눌려진 유저에 해당되는 메시지 받아오기
-
+	
 		@p = User.all #모든 프로필 불러와서 변수에 저장
-
+	
 	end
 
 	def comment
-		cc = Usercomment.new
-
-		cc.user_id = params[:user_id]
-		cc.commenter_id = current_user.id
-		cc.content = params[:content]
-		cc.score = params[:rating].to_i
-
-		cc.save
-
+		unless current_user.id == params[:user_id]
+			comment = Usercomment.where(user_id: params[:user_id], commenter_id: current_user.id).take
+			if comment.nil?
+				cc = Usercomment.new
+				
+				cc.user_id = params[:user_id]
+				cc.commenter_id = current_user.id
+				cc.content = params[:content]
+				cc.score = params[:rating].to_i
+				
+				cc.save
+			else
+				comment.content = params[:content]
+				comment.score = params[:rating].to_i
+				
+			
+				comment.save
+			end
+		end
+		
+	
 		redirect_to :back, id: params[:user_id]
-
 	end
 	
 	def edit
@@ -53,11 +64,24 @@ class HomeController < ApplicationController
 		@users = User.find(params[:id])
 	end
 	
-	 def update
-        nn = User.find(params[:id])
-        nn.introductiondeetail = params[:naeyong]
-        nn.save
-        redirect_to :root
-    end
-
+	def edit2
+	 
+		@users = User.find(params[:id])
+	end
+			
+	def update
+	    nn = User.find(params[:user_id])
+	    nn.introductiondeetail = params[:naeyong]
+	    nn.save
+	    redirect_to "/home/userprofile/#{nn.id}"
+	end
+	
+	def update2
+	    nn = User.find(params[:id])
+	    nn.facebook_id = params[:facebook]
+	    nn.save
+	    redirect_to "/home/userprofile/#{nn.id}"
+	end
+	
+	
 end

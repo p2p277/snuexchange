@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20151126071651) do
     t.string   "language_speak"
     t.string   "brief"
     t.text     "introductiondeetail"
+    t.string   "facebook_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
