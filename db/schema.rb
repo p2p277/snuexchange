@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 20151126071651) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.string   "confirmation_token"
-    t.datetime "confirmed_at",           default: '2015-12-03 08:51:02'
+    t.datetime "confirmed_at",           default: '2015-12-13 10:15:35'
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
   end
