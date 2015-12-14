@@ -7,19 +7,19 @@
         <div class="col-sm-6">
           <div class="row profileimg" style="text-align:center"><img src="/img/pe.jpg" class="img-rounded" style="width:200px"></div>
           <br>
-          <div class="row profileimg" style="text-align:center"><input type="submit" class="btn btn-default" value="메세지 보내기"></div>
+          <div class="row profileimg" style="text-align:center"><input type="submit" class="btn btn-default" value="<%= t :sendmessage %>"></div>
         </div>
 
         <div class="col-sm-6">
-          <div class="row"><span class="profileinfo">성별</span>: <i class="fa fa-mars fa-2x"></i></div>
+          <div class="row"><span class="profileinfo"><%= t :sex %></span>: <i class="fa fa-mars fa-2x"></i></div>
           <br>
-          <div class="row"><span class="profileinfo">가르칠 언어</span>: <span class="profiletext"><%=@users.language_speak%></span></div>
+          <div class="row"><span class="profileinfo"><%= t :teachinglanguage %></span>: <span class="profiletext"><%=@users.language_speak%></span></div>
           <br>
-          <div class="row"><span class="profileinfo">배우고 싶은 언어</span>: <span class="profiletext"><%=@users.language_learn%></span></div>
+          <div class="row"><span class="profileinfo"><%= t :learninglanguage %></span>: <span class="profiletext"><%=@users.language_learn%></span></div>
           <br>
-          <div class="row"><span class="profileinfo">카카오톡 ID</span>: <span class="profiletext">MEMEMEME</span></div>
+          <div class="row"><span class="profileinfo"><%= t :kakao %></span>: <span class="profiletext">MEMEMEME</span></div>
           <br>
-          <div class="row"><span class="profileinfo">수업 요망</span>: <span class="profiletext">재밌게!</span></div>
+          <div class="row"><span class="profileinfo"><%= t :lectureask %></span>: <span class="profiletext">재밌게!</span></div>
         </div>
       </div>
       <br><br>
@@ -70,7 +70,7 @@
 
       <div class="col-md-12">
         <hr>
-        <h3>후기 남기기</h3>
+        <h3><%= t :commenting %></h3>
         <span class="star-rating small">
           <input type="radio" name="rating" value="1"><i></i>
           <input type="radio" name="rating" value="2"><i></i>
@@ -80,7 +80,7 @@
         </span>
 
         <div class= "form-control", rows: "15"></div>
-        <div><input type="submit" class="btn btn-default pull right" value="덧글달기"></div>
+        <div><input type="submit" class="btn btn-default pull right" value=<%= t :feedback %>></div>
       </div>
     </div>
   </div>

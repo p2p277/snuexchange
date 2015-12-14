@@ -1,23 +1,90 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+# 위측 메뉴
+  messagebox: "Message box"
+  log_in: "Log in"
+  sign_up: "Sign up"
+  snuexchange: "SNUEXCHANGE"
+  home: "Home"
+  language_exchange: "Language Exchange"
+  qna: "Q&A"
+  myprofile: "My Profile"
+  informationchange: "Edit Profile"
+  logout: "Log out"
+  login: "Log in"
+# 아래 화면
+  letsexchange: "Let's Exchange!"
+# 언어교환 클릭
+  languagetrade: "Language Exchagne"
+  learninglanguage: "Language to learn"
+  teachinglanguage: "Language to teach"
+  sex: "Sex"
+  search: "Search"
+  korean: "Korean" 
+  english: "English"
+  chinese: "Chinese"
+  spanish: "Spanish"
+  male: "Male"
+  female: "Female"
+  nopreference: "No preference"
+  summit: "Summit"
+  viewprofile: "View Profile"
+  sendmessage: "Send Message"
+  rating: "Rating"
+  
+# 메시지함 클릭
+  mymessagebox: "My Messages"
+  sentmessage: "Sent Messages"
+  receivemessage: "Received Messages"
+  list: "List of message"
+  dialogue: "'s message"
+  send: "Send"
+  gotosent: "Go to sent message box"
+  detailofsentmessage: "Sent message Detail"
+  detail2: "Received message Detail"
+  gotoreceived: "Go to received message box"
+  
+# 맨 아래 화면
+  copyright: "Copyright 2015 SNUEXCHANGE"
+  
+# 자기소개작성
+  introduction: "Type selfintroduction"
+  
+# 홈화면 중간
+  goodpoints: "Why you should use SNUEXCHANGE."
+  point1: "Meet international SNU students whenever, wherever you want."
+  point2: "Improve your foreign language with language exchange."
+  point3: "Experience totally new experience with cultural exchange."
+  point4: "Broaden your perspective by connecting with global network of friends."
+  
+  start: "Get started"
+  functioning: "SNUEXCHANGE is a platform connecting SNU international students with Korean SNU students."
+  matching: "Find Matching Friends!"
+  matching1: "Enjoy language exchange with international friends."
+  
+  sharing: "Share Your Language!"
+  sharing1: "Ask for language corrections to international friends."
+  
+# 언어교환 화면
+  learninglanguage: "Language you want to learn"
+  korean: "Korean"
+  english: "English"
+  chinese: "Chineses"
+  spanish: "Spanish"
+  deutsch: "Deutsch"
+  french: "French"          
+  
+  teachinglanguage: "Language you want to teach"
+
+  sex: "Sex"
+  male: "Male"
+  female: "Female"
+  nomind: "Never mind"
+  submit: "Submit"
+  score: "Score"
+  number: "Peoples"
+  
+# 프로필 화면
+  commenting: "Feedback"
+  feedback: "Write"
+  kakao: "Kakaotalk ID"
+  lectureask: "Demands in Lecture"

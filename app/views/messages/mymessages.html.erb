@@ -1,6 +1,6 @@
 <div class="container">
   <p>
-    <h1>메시지 목록</h1><br>
+    <h1><%= t :list %></h1><br>
     <div class="list-group col-lg-4 col-md-4">
       <% for x in 1..User.all.size %>
         <% if x == current_user.id %>

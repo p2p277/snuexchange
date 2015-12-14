@@ -1,2 +1,90 @@
 ko:
-  find_friend: "친구 찾기"
+# 위측 메뉴
+  messagebox: "메시지함"
+  log_in: "로그인"
+  sign_up: "회원가입"
+  snuexchange: "스누익스체인지" 
+  home: "홈"
+  language_exchange: "언어교환"
+  qna: "Q&A"
+  myprofile: "내 프로필"
+  informationchange: "회원정보수정"
+  logout: "로그아웃"
+  login: "로그인"
+# 아래 화면
+  letsexchange: "교류 하기!"
+# 언어교환 클릭
+  languagetrade: "언어교환"
+  learninglanguage: "배우고 싶은 언어"
+  teachinglanguage: "가르치고 싶은 언어"
+  sex: "성별"
+  search: "검색"
+  korean: "한국어"
+  english: "영어"
+  chinese: "중국어"
+  spanish: "스페인어"
+  male: "남자"
+  female: "여자"
+  nopreference: "상관없음"
+  summit: "제출"
+  viewprofile: "프로필 보기"
+  sendmessage: "메시지 보내기"
+  rating: "평점"
+  
+# 메시지함 클릭
+  mymessagebox: "내 메시지함"
+  sentmessage: "보낸 메시지"
+  receivemessage: "받은 메시지"
+  list: "메시지 목록"
+  dialogue: "님과의 대화"
+  send: "전송"
+  gotosent: "보낸 메시지함으로"
+  detailofsentmessage: "보낸 메시지 Detail"
+  detail2: "받은 메시지 Detail"
+  gotoreceived: "받은 메시지함으로"
+  
+# 맨 아래 화면
+  copyright: "Copyright 2015 스누익스체인지"
+  
+# 자기소개작성
+  introduction: "자기소개작성"
+   
+# 홈화면 중간
+  goodpoints: "스누익스체인지를 하면 좋은 점!"
+  point1: "언제, 어디서나 부담 없이 외국인 친구를 만날 수 있습니다."
+  point2: "언어교환을 통해 자신의 외국어 실력을 늘릴 수 있습니다."
+  point3: "문화교환을 통해 지금껏 경험해보지 못한 색다른 경험을 해보실 수 있습니다."
+  point4: "전 세계에 다양한 친구들을 사귀게 되면서, 자신의 견문을 넓힐 수 있습니다."
+  
+  start: "시작하기"
+  functioning: "스누익스체인지는 서울대학교 학생과 서울대 내 외국인 학생을 연결해주는 플랫폼입니다."
+  matching: "매칭 친구 찾기"
+  matching1: "교환학생 친구와 함께 언어, 첨삭 교류 등을 즐겨 보세요"
+  
+  sharing: "언어 첨삭 교류"
+  sharing1: "외국인 학생들에게 글 첨삭을 부탁해 보세요!"
+  
+# 언어교환 화면
+  learninglanguage: "배우고 싶은 언어"
+  korean: "한국어"
+  english: "영어"
+  chinese: "중국어"
+  spanish: "스페인어"
+  deutsch: "독일어"
+  french: "프랑스어"
+  
+  teachinglanguage: "가르치고 싶은 언어"
+  
+  sex: "성별"
+  male: "남자"
+  female: "여자"
+  nomind: "상관 없음"
+  submit: "제출"
+  score: "평점"
+  number: "명"
+  
+# 프로필 화면
+  commenting: "후기"
+  feedback: "후기 남기기"
+  kakao: "카카오톡 아이디"
+  lectureask: "수업 요망"
