@@ -1,7 +1,7 @@
 <div class="container">
   <p>
-    <h1>보낸 메시지 Detail</h1>
-    <a href="/sendm">보낸 메시지함으로</a><br><br>
+    <h1><%= t :detailofsentmessage %></h1>
+    <a href="/sendm"><%= t :gotosent %></a><br><br>
     <% if @sendm_detail_message.sender_destroy == false %>
     <h4>To. <%=User.find(@sendm_detail_message.receiver).name%></h4>
     <h5>: <%=@sendm_detail_message.content%></h5>

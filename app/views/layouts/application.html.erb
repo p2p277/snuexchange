@@ -12,7 +12,7 @@
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>스누익스체인지</title>
+    <title><%= t :snuexchange %></title>
     <meta name="generator" content="Bootply" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,99 +25,103 @@
   </head>
   <body>
 
-  <header class="navbar navbar-default navbar-fixed-top" role="banner">
+    <header class="navbar navbar-default navbar-fixed-top" role="banner">
 
-    <div class="container">
-      <div class="navbar-header">
-        <a href="/" style="text-decoration:none">
-          <h2>스누익스체인지</h2></a>
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" style="text-decoration:none">
+            <h2><%= t :snuexchange %></h2></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <% if user_signed_in? %>
+              <div>
+                <% if User.find(current_user.id).avatar_file_name != nil %>
+                  <%= image_tag(current_user.avatar.url(:thumb), class: 'profile_image p_down') %> &nbsp;
+                <% elsif current_user.gender == "female" %> 
+                  <img src="/images/thumb/missing1.png" class="profile_image p_down">
+                <% else %>
+                  <img src="/images/thumb/missing2.png" class="profile_image p_down">
+                <% end %>
+                <span class="user_informaion">
+                  <a><%=current_user.email%></a><br>
+                  <a href="/home/userprofile/<%=current_user.id%>"><%= t :myprofile %></a><br>
+                  <a href="/users/edit"><%= t :informationchange %></a><br>
+                  <a href="/users/sign_out" data-method="delete"><%= t :logout %></a>
+                </span>
+              </div>
+            <% else %>
+              <div class="buttons">
+                <div><a href="/users/sign_in"><%= t :login %></a></div>
+                <div><a href="/users/sign_up"><%= t :sign_up %></a></div>
+              </div>
+            <% end %>
+          </form>
+        </div>
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <form class="navbar-form navbar-right">
-          <% if user_signed_in? %>
-            <div>
-              <% if User.find(current_user.id).avatar_file_name != nil %>
-                <%= image_tag(current_user.avatar.url(:thumb), class: 'profile_image p_down') %> &nbsp;
-              <% elsif current_user.gender == "female" %> 
-                <img src="/images/thumb/missing1.png" class="profile_image p_down">
+
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <nav class="collapse navbar-collapse" role="navigation">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/"><%= t :home %></a>
+            </li>
+            <li>
+              <a href="/home/language"><%= t :language_exchange %></a>
+            </li>
+            <li>
+              <a href="/posts">Q&A</a>
+            </li>
+            <li>
+              <% if user_signed_in? %>
+                <a href="/mymessages"><%= t :messagebox %> <span class="badge"><%=Message.where(receiver: current_user.id).where(flags: false).size%></span></a>
               <% else %>
-                <img src="/images/thumb/missing2.png" class="profile_image p_down">
+                <a href="/users/sign_in"><%= t :messagebox %></a>
               <% end %>
-              <span class="user_informaion">
-                <a><%=current_user.email%></a><br>
-                <a href="/home/userprofile/<%=current_user.id%>">프로필 보기</a><br>
-                <a href="/users/edit">회원정보수정</a><br>
-                <a href="/users/sign_out" data-method="delete">로그아웃</a>
-              </span>
-            </div>
-          <% else %>
-            <div class="buttons">
-              <div><a href="/users/sign_in">로그인</a></div>
-              <div><a href="/users/sign_up">회원가입</a></div>
-            </div>
-          <% end %>
-        </form>
+            </li>
+          </ul>
+        </nav>
       </div>
-    </div>
-
-    <div class="container">
-      <div class="navbar-header">
-        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <nav class="collapse navbar-collapse" role="navigation">
-        <ul class="nav navbar-nav">
-          <li>
-            <a href="/">홈</a>
-          </li>
-          <li>
-            <a href="/home/language">언어 교환</a>
-          </li>
-          <li>
-            <a href="/posts">Q&A</a>
-          </li>
-          <li>
-            
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </header>
     <br><br><br><br>
     <%= yield %>
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-6">
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
 
-        </div>
-        <div class="col-sm-6">
-          <p class="pull-right">Copyright 2015 스누익스체인지</a></p>      
+          </div>
+          <div class="col-sm-6">
+            <p class="pull-right"><%= t :copyright %></a></p>      
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
+    </footer>
   </body>
   <!-- script references -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </html>
 <script>
-  $(document).ready(function() {
-    fixedFooter();
-  });
-  
-  $('body').on('resize', function() {
-    fixedFooter();
-  });
-  
-  function fixedFooter() {
-    if($(window).height() > $('html').height()) {
-      $('footer').addClass('fixed');
-    }
+$(document).ready(function() {
+  fixedFooter();
+});
+
+$('body').on('resize', function() {
+  fixedFooter();
+});
+
+function fixedFooter() {
+  if($(window).height() > $('html').height()) {
+    $('footer').addClass('fixed');
   }
+}
 </script>

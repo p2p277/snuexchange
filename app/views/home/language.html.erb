@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-7">
-      <h3>매칭 친구 찾기</h3>
+      <h3><%= t :matching %></h3>
     </div>
   </div>
 </div>
@@ -12,33 +12,33 @@
     <form action="/language" class="form-inline">
 
       <select name="learn" class="form-control">
-        <li><option value="">배우고 싶은 언어</option>
-          <option value="Korean">한국어</option>
-          <option value="English">영어</option>
-          <option value="Chinese">중국어</option>
-          <option value="Deutsch">독일어</option>
-          <option value="Japanese">일본어</option>
-          <option value="French">프랑스어</option>
+        <li><option value=""><%= t :learninglanguage %></option>
+          <option value="Korean"><%= t :korean %></option>
+          <option value="English"><%= t :english %></option>
+          <option value="Chinese"><%= t :chinese %></option>
+          <option value="Spanish"><%= t :spanish %></option>
+          <option value="Deutsch"><%= t :deutsch %></option>
+          <option value="French"><%= t :french %></option>
       </select>
 
       <select name="teach" class="form-control">
-        <option value="">가르치고 싶은 언어</option>
-        <option value="Korean">한국어</option>
-        <option value="English">영어</option>
-        <option value="Chinese">중국어</option>
-        <option value="Deutsch">독일어</option>
-        <option value="Japanese">일본어</option>
-        <option value="French">프랑스어</option>
+        <option value=""><%= t :teachinglanguage %></option>
+        <option value="Korean"><%= t :korean %></option>
+        <option value="English"><%= t :english %></option>
+        <option value="Chinese"><%= t :chinese %></option>
+        <option value="Spanish"><%= t :spanish %></option>
+        <option value="Deutsch"><%= t :deutsch %></option>
+        <option value="French"><%= t :french %></option>
       </select>
 
       <select name="sex" class="form-control">
-        <option value="">성별</option>
-        <option value="male">남자</option>
-        <option value="female">여자</option>
-        <option value="">상관 없음</option>
+        <option value=""><%= t :sex %></option>
+        <option value="male"><%= t :male %></option>
+        <option value="female"><%= t :female %></option>
+        <option value=""><%= t :nomind %></option>
       </select>
 
-      <input class="btn btn-default" type="submit" value="제출">
+      <input class="btn btn-default" type="submit" value=<%= t :submit %>>
     </form>
   </div>
 </div>
@@ -75,17 +75,17 @@
                 <div class="col-xs-9">
                   <p><%=u.brief%></p>
                   <% if user_signed_in? %>
-                    <a href="/home/userprofile/<%=u.id%>" class="btn btn-default">프로필 보기</a>
+                    <a href="/home/userprofile/<%=u.id%>" class="btn btn-default"><%= t :viewprofile %></a>
                     <% unless u.id == current_user.id %>
-                      <a href="/messages_write/<%=u.id%>" class="btn btn-default">메세지 보내기</a>
+                      <a href="/messages_write/<%=u.id%>" class="btn btn-default"><%= t :sendmessage %></a>
                     <% end %>
                   <% else %>
-                    <a href="/users/sign_in" class="btn btn-default">프로필 보기</a>
-                    <a href="/users/sign_in" class="btn btn-default">메세지 보내기</a>
+                    <a href="/users/sign_in" class="btn btn-default"><%= t :viewprofile %></a>
+                    <a href="/users/sign_in" class="btn btn-default"><%= t :sendmessage %></a>
                   <% end %>
                   <br>
 
-                  <p id="count"> 평점 : <%= u.avg.round(1) %> (<%=u.usercomments.count%> 명) </p>
+                  <p id="count"> Scores : <%= u.avg.round(1) %> (<%=u.usercomments.count%> Numbers) </p>
                   <span class="star-rating">
                     <% 1.upto(5) do |i| %>
                       <% if i == u.avg.round(0) %>

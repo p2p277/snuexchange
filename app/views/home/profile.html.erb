@@ -15,7 +15,7 @@
             <% end %>
           </div>
           <br>
-          <div class="row profileimg" style="text-align:center"><input type="submit" class="btn btn-default" value="메세지 보내기"></div>
+          <div class="row profileimg" style="text-align:center"><input type="submit" class="btn btn-default" value="<%= t :sendmessage %>"></div>
         </div>
 
         <div class="col-sm-6">
@@ -27,18 +27,18 @@
             <% end %>
           </div>
           <br>
-          <div class="row"><span class="profileinfo">가르칠 언어</span>: <span class="profiletext"><%=@users.language_speak%></span></div>
+          <div class="row"><span class="profileinfo"><%= t :teachinglanguage %></span>: <span class="profiletext"><%=@users.language_speak%></span></div>
           <br>
-          <div class="row"><span class="profileinfo">배우고 싶은 언어</span>: <span class="profiletext"><%=@users.language_learn%></span></div>
+          <div class="row"><span class="profileinfo"><%= t :learninglanguage %></span>: <span class="profiletext"><%=@users.language_learn%></span></div>
           <br>
-          <div class="row"><span class="profileinfo">수업 계획</span>: 
-                      <span class="profiletext"><%=@users.plan %>
-                        <% if @users.id == current_user.id %>  
-                           <a class="bin ban-info btn-xs" href="/home/edit2/<%=@users.id%>" role="button">수정</a>
-                        <% else %>
-                           <i></i>
-                        <% end %>
-                      </span>
+          <div class="row"><span class="profileinfo"><%= t :lectureask %></span>: 
+            <span class="profiletext"><%=@users.plan %>
+            <% if @users.id == current_user.id %>  
+              <a class="bin ban-info btn-xs" href="/home/edit2/<%=@users.id%>" role="button">수정</a>
+            <% else %>
+              <i></i>
+            <% end %>
+            </span>
           </div>
         </div>
       </div>
@@ -66,34 +66,34 @@
       <!-- 평가한 내용 show -->
       <% @cc.each do |c| %>
         <div class="col-sm-12">
-        <div class= "col-sm-3">
-          <% if User.find(c.commenter_id).avatar_file_name != nil %>
-            <%= image_tag(User.find(c.commenter_id).avatar.url(:thumb), class: 'round-image-100', style: 'width: 100px') %> 
-          <% elsif @users.gender == "female" %> 
-            <img src="/images/thumb/missing1.png" class="main_image" style="width:100px">
-          <% else %>
-            <img src="/images/thumb/missing2.png" class="main_image" style="width:100px">
-          <% end %>
-        </div>
-        <div class="col-sm-9">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <h3 class="panel-title">
-                <%=User.find(c.commenter_id).name %>
-              </h3>
-            </div>
-            <span class="star-rating small">
-              <% 1.upto(5) do |i| %>
-                <% if i == c.score %>
-                  <i class="on"></i>
-                <% else %>
-                  <i></i>
-                <% end %>
-              <% end %>
-            </span>
-            <div class="panel-body"><%=c.content%></div>
+          <div class= "col-sm-3">
+            <% if User.find(c.commenter_id).avatar_file_name != nil %>
+              <%= image_tag(User.find(c.commenter_id).avatar.url(:thumb), class: 'round-image-100', style: 'width: 100px') %> 
+            <% elsif @users.gender == "female" %> 
+              <img src="/images/thumb/missing1.png" class="main_image" style="width:100px">
+            <% else %>
+              <img src="/images/thumb/missing2.png" class="main_image" style="width:100px">
+            <% end %>
           </div>
-        </div>
+          <div class="col-sm-9">
+            <div class="panel panel-warning">
+              <div class="panel-heading">
+                <h3 class="panel-title">
+                  <%=User.find(c.commenter_id).name %>
+                </h3>
+              </div>
+              <span class="star-rating small">
+                <% 1.upto(5) do |i| %>
+                  <% if i == c.score %>
+                    <i class="on"></i>
+                  <% else %>
+                    <i></i>
+                  <% end %>
+                <% end %>
+              </span>
+              <div class="panel-body"><%=c.content%></div>
+            </div>
+          </div>
         </div>
       <% end %>
 
@@ -106,7 +106,7 @@
           <hr>
           <div class="container">
             <div class="col-md-12">
-              <h3>후기 남기기</h3>
+              <h3><%= t :commenting %></h3>
 
               <%=form_tag '/home/comment', method: 'get' do %>
                 <input type="hidden" name="user_id" value="<%=@users.id%>">
@@ -121,7 +121,7 @@
                     <input type="radio" name="rating" value="4"><i></i>
                     <input type="radio" name="rating" value="5"><i></i>
                   </span>
-                  <div><input type="submit" class="bin ban-default pull right" value="덧글달기"></div>
+                  <div><input type="submit" class="btn btn-default pull right" value=<%= t :feedback %>></div>
                 </div>
               <% end %>
             </div>
@@ -133,4 +133,3 @@
     </div>
   </div>
 </div>
-l
