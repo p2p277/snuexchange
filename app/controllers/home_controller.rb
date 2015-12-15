@@ -1,5 +1,11 @@
 class HomeController < ApplicationController
 
+	def set
+		locale = params[:id]
+		session[:locale] = locale
+		redirect_to :back
+	end
+
 	def index
 
 	end

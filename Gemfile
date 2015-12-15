@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'figaro'
 gem 'devise'
 gem 'mailgun_rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

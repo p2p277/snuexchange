@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	before_filter :configure_permitted_parameters, if: :devise_controller?
+	before_filter :set_locale
 
 	protected
 
@@ -21,6 +22,12 @@ class ApplicationController < ActionController::Base
 			else
 				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :password, :password_confirmation, :current_password, :avatar)
 			end
+		end
+	end
+
+	def set_locale
+		if session[:locale]
+			I18n.locale = session[:locale]
 		end
 	end
 

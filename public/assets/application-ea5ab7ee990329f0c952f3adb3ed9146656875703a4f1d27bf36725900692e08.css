@@ -1,0 +1,454 @@
+/* line 4, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.rectangular {
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 25px;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  text-align: center;
+  float: left;
+}
+
+/* line 15, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating {
+  font-size: 0;
+  white-space: nowrap;
+  display: inline-block;
+  width: 250px;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  background: url('data:image/svg+xml;utf-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"><polygon fill="#DDDDDD" points="10,0 13.09,6.583 20,7.639 15,12.764 16.18,20 10,16.583 3.82,20 5,12.764 0,7.639 6.91,6.583 "/></svg>');
+  background-size: contain;
+}
+/* line 26, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating i {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  z-index: 1;
+  background: url('data:image/svg+xml;utf-8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 20 20" xml:space="preserve"><polygon fill="#FFDF88" points="10,0 13.09,6.583 20,7.639 15,12.764 16.18,20 10,16.583 3.82,20 5,12.764 0,7.639 6.91,6.583 "/></svg>');
+  background-size: contain;
+}
+/* line 38, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  opacity: 0;
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  position: relative;
+}
+/* line 49, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating input:hover + i, .star-rating input:checked + i {
+  opacity: 1;
+}
+/* line 54, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating i ~ i {
+  width: 40%;
+}
+/* line 57, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating i ~ i ~ i {
+  width: 60%;
+}
+/* line 60, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating i ~ i ~ i ~ i {
+  width: 80%;
+}
+/* line 63, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.star-rating i ~ i ~ i ~ i ~ i {
+  width: 100%;
+}
+
+/* line 71, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.choice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  padding: 20px;
+  display: block;
+}
+
+/* line 80, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.small {
+  width: 125px;
+  height: 25px;
+}
+
+/* line 86, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.on {
+  opacity: 1 !important;
+}
+
+/* line 90, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.stroy-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+/* line 97, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.profile_photo {
+  position: relative;
+  top: 25px;
+  left: 20px;
+}
+
+/* line 103, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.p_down {
+  position: relative;
+  right: 5px;
+  top: 7px;
+}
+
+/* line 108, /home/ec2-user/snuexchange/app/assets/stylesheets/home.scss */
+.main_image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+/* line 5, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.overflow {
+  width: 500px;
+  word-break: break-all;
+}
+
+/* line 10, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.date {
+  float: right;
+  font-size: 12px;
+  color: grey;
+}
+
+/* line 16, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.profile_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
+}
+
+/* line 23, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.mp {
+  position: absolute;
+  left: 75px;
+  top: 13px;
+}
+
+/* line 29, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.mp_date {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  font-size: 12px;
+  color: grey;
+}
+
+/* line 37, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.mp_count {
+  position: absolute;
+  bottom: 17px;
+  right: 10px;
+}
+
+/* line 43, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.mp_content {
+  white-space: nowrap;
+  width: 16em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 50, /home/ec2-user/snuexchange/app/assets/stylesheets/messages.scss */
+.submit_position {
+  position: relative;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
+
+.navbar-form input, .form-inline input {
+  width:auto;
+}
+
+body {
+  margin-top: 120px !important;
+
+}
+
+.main title {
+  text-align:center;
+}
+
+
+
+footer {
+  margin-top:40px;
+  padding-top:40px;
+  padding-bottom:40px;
+  background-color:#ededed;
+}
+
+
+#masthead {
+  min-height:199px;
+}
+
+#masthead h1 {
+  font-size: 55px;
+  line-height: 1;
+  margin-top:50px;
+}
+
+#masthead .well {
+  margin-top:31px;
+  min-height:127px;
+}
+
+.navbar.affix {
+  position:fixed;
+  top:0;
+  width:100%;
+}
+
+.story-img {
+  display:block;
+}
+
+a,a:hover {
+  color:#223344;
+  text-decoration:none;
+}
+
+.icon-bar {
+  background-color:#fff;
+}
+
+@media screen and (min-width: 768px) {
+  #masthead h1 {
+    font-size: 80px;
+  }
+  
+  
+.dropdown-menu {
+  min-width: 250px;
+}
+
+.panel {
+  border-color:transparent;
+  border-radius:0;
+}
+
+.thumbnail {
+  margin-bottom:8px;
+}
+
+
+
+}
+.img-container {
+  overflow:hidden;
+  height:170px;
+}
+
+.img-container img {
+  min-width:280px;
+  min-height:180px;
+  max-width:380px;
+  max-height:280px;
+}
+
+.txt-container {
+  overflow:hidden;
+  height:100px;
+}
+
+.panel .lead {
+  overflow:hidden;
+  height:90px;
+}
+
+.label-float{
+  margin:0 auto;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width:100%;
+  opacity:.9;
+  padding:6px;
+  color:#fff;
+}
+    
+.btn-twitter {background-color:#4099FF;color:#fff;}
+.btn-facebook {background-color:#3B5998;color:#fff;}
+.btn-google-plus {background-color:#d34836;color:#fff;}
+
+.btn-twitter:hover {background-color:#3088FF;color:#62BBFF;}
+.btn-facebook:hover {background-color:#2A4998;color:#4C6BBA;}
+.btn-google-plus:hover {background-color:#C23836;color:#E45A58;}
+
+.home-overlay {
+
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+.intro {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 0;
+	text-align: center;
+	color: white;
+	-webkit-transform: translate(0%, -50%);
+	   -moz-transform: translate(0%, -50%);
+		-ms-transform: translate(0%, -50%);
+		 -o-transform: translate(0%, -50%);
+			transform: translate(0%, -50%);
+	padding: 0 15px;
+}
+
+.intro h1{
+    font-weight: 2000;
+    font-size: 400%;
+    color: white;
+}
+
+.start {
+
+	font-size: 150%;
+	color: white;
+	text-transform: none;
+	margin: 15px 0;
+}
+
+.glyphicon{
+  
+    font-size: 200%;
+}
+
+.center title {
+  text-align: center;
+}
+
+.container .main {
+  
+text-align: center;
+  
+}
+
+.stylish-panel {
+
+    text-align: center;
+}
+
+
+.img-thumbnail {
+  
+  width: 50%;
+  height: 50%;
+}
+
+.video .fullscreen-bg__video {
+    
+    display:inline-block;
+    width:100%;
+    margin-top: -380px;
+    
+}
+
+.navbar .navbar-form.navbar-right {
+  
+  margin-top: 20px;
+}
+
+.qanda {
+  max-width: 600px !important;
+  margin: 0px auto;
+}
+
+footer.fixed {
+    position: fixed !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+}
+
+.stick .row img {
+  border-radius: 50%;
+}
+
+.user_informaion {
+  float: right;
+.profile_image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+}
+
+.main_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .8);
+}
+.introtext h3 {
+  font-weight: 300;
+  margin: 20px;
+}
+
+.panel {
+
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.profileimg {
+  text-align:center;
+}
+
+.profileinfo {
+  font-size: 130%;
+  font-weight:bold;
+}
+
+.profiletext {
+  font-size: 130%;
+}
+
+
+.profilebox {
+  max-width: 600px !important;
+  margin: 0px auto;
+}
+

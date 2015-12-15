@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     post '/sending' => 'messages#sending'
     get '/mymessages' => 'messages#mymessages'
     get '/message_delete' => 'message#message_delete'
+
+    get '/change_locale' => 'home#set'
 end
