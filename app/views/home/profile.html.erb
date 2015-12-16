@@ -34,7 +34,7 @@
           <div class="row"><span class="profileinfo"><%= t :lectureask %></span>: 
             <span class="profiletext"><%=@users.plan %>
             <% if @users.id == current_user.id %>  
-              <a class="bin ban-info btn-xs" href="/home/edit2/<%=@users.id%>" role="button">수정</a>
+              <a class="bin ban-info btn-xs" href="/home/edit2/<%=@users.id%>" role="button"><%= t :modify %></a>
             <% else %>
               <i></i>
             <% end %>
@@ -49,12 +49,12 @@
       <div class="col-sm-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Test's Profile</h3>
+            <h3 class="panel-title"><%= t :intro %></h3>
           </div>
           <div class="panel-body">
-            <%=@users.introductiondeetail %> 
+            <%=@users.brief %> 
             <% if @users.id == current_user.id %>
-              <a class="bin ban-info btn-xs" href="/home/edit/<%=@users.id%>" role="button">자기소개수정</a>
+              <a class="bin ban-info btn-xs" href="/home/edit/<%=@users.id%>" role="button"><%= t :modify %></a>
             <% else %>
               <i></i>
             <% end %>
