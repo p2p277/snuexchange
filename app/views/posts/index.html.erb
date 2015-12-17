@@ -3,43 +3,57 @@
   <div class="row">
     <div class="col-md-12">
 
-   <h1 align="center">Q&A</h1>
-    <br>
-    
-    <div class="qanda">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th width ="80%">Title</th>
-            <th width = "15%">User</th>
-            <th width ="5%">Viewcount</th>
-            
-          </tr>
-          
-        </thead>
-        
-  
-    
-      
-        <tbody>
-          <% @posts.each do |post| %>
-          <% if post.flag == true%>
+      <h1 align="center">Q&A</h1>
+      <br>
+
+      <div class="qanda">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th width ="80%">Title</th>
+              <th width = "15%">User</th>
+              <th width ="5%">Viewcount</th>
+
+            </tr>
+
+          </thead>
+
+
+
+
+          <tbody>
             <tr>
               <td>
-                <%= link_to post_path(post) do %>
-                  <%= post.title %>
-                <% end %>
+                <a href="notice/1">10 TIPS FOR A FOREIGN EXCHANGE STUDENT</a>
               </td>
-              <td><%= post.user.email %></td>
-              <td><%= post.count %></td>
-              
+              <td> </td>
+              <td> </td>
             </tr>
-            <%end%>
-          <% end %>
-        </tbody>
-      </table>
-      <%= link_to "new", new_post_path, :class => "btn btn-primary pull-right" %>
-    </div>
+            <tr>
+              <td>
+                <a href="notice/2">5 beautiful places to visit in Korea</a>
+              </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <% @posts.each do |post| %>
+              <% if post.flag == true%>
+                <tr>
+                  <td>
+                    <%= link_to post_path(post) do %>
+                      <%= post.title %>
+                    <% end %>
+                  </td>
+                  <td><%= post.user.email %></td>
+                  <td><%= post.count %></td>
+
+                </tr>
+              <%end%>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "new", new_post_path, :class => "btn btn-primary pull-right" %>
+      </div>
     </div>
   </div>
 </div>

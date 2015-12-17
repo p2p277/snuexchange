@@ -26,4 +26,7 @@ Rails.application.routes.draw do
     get '/message_delete' => 'message#message_delete'
 
     get '/change_locale/:id' => 'home#set', :as => 'set_locale'
+
+	get '/notice/1' => 'home#notice1'
+	get '/notice/2' => 'home#notice2'
 end
