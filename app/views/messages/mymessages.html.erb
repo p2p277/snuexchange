@@ -7,7 +7,11 @@
         <% elsif @sentm_message.where(sender: [x]).size == 0 %>
         <% else %>
           <a href="/messages_write/<%=@sentm_message.where(sender: [x]).last.sender%>" name="id" class="list-group-item" value="<%=@sentm_message.where(sender: [x]).last.sender%>">
-              <%= image_tag(User.find(@sentm_message.where(sender: [x]).last.sender).avatar.url(:thumb), :class => "profile_image") %>
+	      <% if User.find(@sentm_message.where(sender: [x]).last.sender).avatar_file_name == nil %>
+                  <img src="/images/thumb/missing2.png" class="profile_image">
+	      <% else %>
+                  <%= image_tag(User.find(@sentm_message.where(sender: [x]).last.sender).avatar.url(:thumb), :class => "profile_image") %>
+	      <% end %>
               <span class="mp">
                 <span><%=User.find(@sentm_message.where(sender: [x]).last.sender).name %></span><br>
                 <p class="mp_content"><%=@sentm_message.where(sender: [x]).last.content %></p>
