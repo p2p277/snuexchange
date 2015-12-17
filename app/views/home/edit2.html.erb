@@ -1,14 +1,14 @@
 <div class= "container1 col-xs-11">
-            <h1>수업계획</h1>
+            <h1><%= t :plan %></h1>
             
             <%=form_tag '/update2', method: 'post' do %>
                 <input type="hidden" name="id" value="<%= @users.id %>">
                 <div class="form-group col-lg-6">
-                    <textarea name="plan" placeholder="수업계획을 적어주세요" rows="10" cols="50"></textarea>
+                    <textarea name="plan" rows="10" cols="50"></textarea>
                 </div>
                
                 <div class="form-group">
-                     <input type="submit" class="btn btn-success" value="수정">
+                     <input type="submit" class="btn btn-success" value=<%= t :modify %>>
                 </div>
                
                     <br>
