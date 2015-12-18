@@ -61,7 +61,7 @@
             <div class="col-md-2 col-sm-3 text-center">
               <li type="none" class="stroy-img">
                 <% if User.find(u.id).avatar_file_name != nil %>
-                  <%= image_tag(u.avatar.url(:thumb)) %>
+                  <%= image_tag(u.avatar.url(:thumb), class: 'profile_picture') %>
                 <% elsif u.gender == "female" %> 
                   <img src="/images/thumb/missing1.png" class="main_image">
                 <% else %>

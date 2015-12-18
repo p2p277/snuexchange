@@ -4,8 +4,17 @@
     <div class="list-group col-lg-4 col-md-4">
       <% for x in 1..User.all.size %>
         <% if x == current_user.id %>
-        <% elsif @sentm_message.where(sender: [x]).size == 0 %>
-        <% else %>
+        <% elsif @sentm_message.where(sender: [x]).size == 0 && @sending_message.where(receiver: [x]).size == 0 %>
+        <% elsif @sentm_message.where(sender: [x]).size == 0 && @sending_message.where(receiver: [x]).size > 0 %>
+          <a href="/messages_write/<%=@sending_message.where(receiver: [x]).last.receiver%>" name="id" class="list-group-item" value="<%=@sending_message.where(receiver: [x]).last.receiver%>">
+            <%= image_tag(User.find(@sending_message.where(receiver: [x]).last.receiver).avatar.url(:thumb), :class => "profile_image") %>
+            <span class="mp">
+              <span><%=User.find(@sending_message.where(receiver: [x]).last.receiver).name %></span><br>
+              <p class="mp_content"><%=@sending_message.where(receiver: [x]).last.content %></p>
+            </span>
+            <span class="mp_date"><%=@sending_message.where(receiver: [x]).last.created_at.in_time_zone('Seoul').strftime('%Y-%m-%d %I:%M %p') %></span>
+          </a>
+        <% elsif @sentm_message.where(sender: [x]).size > 0 && @sending_message.where(receiver: [x]).size == 0 %>
           <a href="/messages_write/<%=@sentm_message.where(sender: [x]).last.sender%>" name="id" class="list-group-item" value="<%=@sentm_message.where(sender: [x]).last.sender%>">
               <%= image_tag(User.find(@sentm_message.where(sender: [x]).last.sender).avatar.url(:thumb), :class => "profile_image") %>
               <span class="mp">
@@ -17,18 +26,21 @@
             <span class="badge mp_count"><%=@sentm_message.where(sender: [x], flags: false).size%></span>
             <% end %>
           </a>
-        <% end %>
-      <% end %>
-        <% for x in 1..User.all.size %>
-        <% if x == current_user.id %>
-        <% elsif @sending_message.where(receiver: [x]).size > 0 && @sentm_message.where(sender: [x]).size == 0 %>
-          <a href="/messages_write/<%=@sending_message.where(receiver: [x]).last.receiver%>" name="id" class="list-group-item" value="<%=@sending_message.where(receiver: [x]).last.receiver%>">
-            <%= image_tag(User.find(@sending_message.where(receiver: [x]).last.receiver).avatar.url(:thumb), :class => "profile_image") %>
-            <span class="mp">
-              <span><%=User.find(@sending_message.where(receiver: [x]).last.receiver).name %></span><br>
-              <p class="mp_content"><%=@sending_message.where(receiver: [x]).last.content %></p>
-            </span>
-            <span class="mp_date"><%=@sending_message.where(receiver: [x]).last.created_at.in_time_zone('Seoul').strftime('%Y-%m-%d %I:%M %p') %></span>
+        <% else %>
+          <a href="/messages_write/<%=@sentm_message.where(sender: [x]).last.sender%>" name="id" class="list-group-item" value="<%=@sentm_message.where(sender: [x]).last.sender%>">
+              <%= image_tag(User.find(@sentm_message.where(sender: [x]).last.sender).avatar.url(:thumb), :class => "profile_image") %>
+              <span class="mp">
+                <span><%=User.find(@sentm_message.where(sender: [x]).last.sender).name %></span><br>
+                <% if @sentm_message.where(sender: [x]).last.created_at > @sending_message.where(receiver: [x]).last.created_at %>
+                  <p class="mp_content"><%=@sentm_message.where(sender: [x]).last.content %></p>
+                <% else %>
+                  <p class="mp_content"><%=@sending_message.where(receiver: [x]).last.content %></p>
+                <% end %>
+              </span>
+              <span class="mp_date"><%=@sentm_message.where(sender: [x]).last.created_at.in_time_zone('Seoul').strftime('%Y-%m-%d %I:%M %p') %></span>
+            <% unless @sentm_message.where(sender: [x], flags: false).size == 0 %>
+            <span class="badge mp_count"><%=@sentm_message.where(sender: [x], flags: false).size%></span>
+            <% end %>
           </a>
         <% end %>
       <% end %>
