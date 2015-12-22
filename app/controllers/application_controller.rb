@@ -13,13 +13,13 @@ class ApplicationController < ActionController::Base
 	###
 	def configure_permitted_parameters
 		devise_parameter_sanitizer.for(:sign_up) do |u|
-			u.permit(:name, :gender, :language_learn, :language_speak, :brief,  :email, :password, :password_confirmation, :avatar)
+			u.permit(:name, :gender, :language_learn, :language_speak, :brief,  :email, :password, :password_confirmation, :my_image)
 		end
 		devise_parameter_sanitizer.for(:account_update) do |u|
 			if [:password, :password_confirmation] == ""
-				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :current_password, :avatar)
+				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :current_password, :my_image)
 			else
-				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :password, :password_confirmation, :current_password, :avatar)
+				u.permit(:name, :gender, :language_learn, :language_speak, :brief, :email, :password, :password_confirmation, :current_password, :my_image)
 			end
 		end
 	end

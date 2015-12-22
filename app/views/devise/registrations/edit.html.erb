@@ -66,16 +66,16 @@
     </select>
   </div><Br>
     
-  <div class="filed">
+  <div class="field">
     <%= f.label :brief, "Brief introduction to yourself" %><br>
     <%= f.text_field :brief, autofocus: true %>
   </div><br>
   
-  <div class="form-group">
-        <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
-        <div class="col-sm-6">
-            <%= f.file_field :avatar %>
-        </div>
+  <div class="field">
+      <div class="field">
+          <%= f.label :my_image %>
+          <%= f.file_field :my_image %>
+      </div><br>
   </div><br>
 
   <div class="actions">

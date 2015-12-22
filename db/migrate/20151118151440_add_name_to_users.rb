@@ -7,6 +7,7 @@ class AddNameToUsers < ActiveRecord::Migration
     add_column :users, :brief, :string
     add_column :users, :introductiondeetail, :text
     add_column :users, :plan, :text
+    add_column :users, :my_image, :string
     
   end
 end

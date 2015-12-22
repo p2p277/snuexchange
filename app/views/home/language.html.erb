@@ -59,15 +59,13 @@
           <div class="row profiles">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              <li type="none">
-                <% if User.find(u.id).avatar_file_name != nil %>
-                  <%= image_tag(u.avatar.url(:thumb)) %>
-                <% elsif u.gender == "female" %> 
-                  <img src="/images/thumb/missing1.png" class="main_image">
-                <% else %>
-                  <img src="/images/thumb/missing2.png" class="main_image">
-                <% end %>
-              </li>
+              <% if u.my_image != nil %>
+                <%= image_tag(u.my_image.url, class: 'main_image') %>
+              <% elsif u.gender == "female" %> 
+                <img src="/images/thumb/missing1.png" class= 'main_image'>
+              <% else %>
+                 <img src="/images/thumb/missing2.png" class= 'main_image'>
+              <% end %>
             </div>
             <div class="col-md-10 col-sm-9">
               <h3><%=u.name%></h3>

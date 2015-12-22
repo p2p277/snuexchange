@@ -36,12 +36,12 @@
         <form class="navbar-form navbar-right">
           <% if user_signed_in? %>
             <div>
-              <% if User.find(current_user.id).avatar_file_name != nil %>
-                <%= image_tag(current_user.avatar.url(:thumb), class: 'profile_image p_down') %> &nbsp;
+              <% if User.find(current_user.id).my_image != nil %>
+                <%= image_tag(current_user.my_image.url, class: 'profile_image p_down') %> &nbsp;
               <% elsif current_user.gender == "female" %> 
-                <img src="/images/thumb/missing1.png" class="profile_image p_down">
-              <% else %>
-                <img src="/images/thumb/missing2.png" class="profile_image p_down">
+                <img src="/thumb/missing1.png" class= class="profile_image p_down">
+              <% else %>>
+                <img src="/thumb/missing2.png" class= class="profile_image p_down"
               <% end %>
               <span class="user_informaion">
                 <a><%=current_user.email%></a><br>
